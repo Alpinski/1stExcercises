@@ -1,6 +1,8 @@
 #include "KeyboardController.h"
 #include "Input.h"
 
+using namespace aie;
+
 KeyboardController::KeyboardController()
 {
 }

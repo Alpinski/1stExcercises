@@ -1,0 +1,2 @@
+﻿Source.obj : error LNK2019: unresolved external symbol "int __cdecl drag(int,int)" (?drag@@YAHHH@Z) referenced in function _main
+c:\users\s171102\documents\visual studio 2015\Projects\reference\Debug\reference.exe : fatal error LNK1120: 1 unresolved externals

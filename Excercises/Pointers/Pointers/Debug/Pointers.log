@@ -1,0 +1,4 @@
+﻿  Source.cpp
+c:\users\s171102\documents\visual studio 2015\projects\pointers\pointers\source.cpp(14): error C2065: 'answer': undeclared identifier
+c:\users\s171102\documents\visual studio 2015\projects\pointers\pointers\source.cpp(64): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+c:\users\s171102\documents\visual studio 2015\projects\pointers\pointers\source.cpp(68): fatal error C1004: unexpected end-of-file found

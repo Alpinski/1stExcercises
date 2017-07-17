@@ -1,0 +1,30 @@
+﻿  Source.cpp
+c:\users\s171102\documents\visual studio 2015\projects\newex\newex\kknight.h(9): error C3646: 'position': unknown override specifier
+c:\users\s171102\documents\visual studio 2015\projects\newex\newex\kknight.h(9): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  SSword.cpp
+c:\users\s171102\documents\visual studio 2015\projects\newex\newex\kknight.h(9): error C3646: 'position': unknown override specifier
+c:\users\s171102\documents\visual studio 2015\projects\newex\newex\kknight.h(9): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  KKnight.cpp
+c:\users\s171102\documents\visual studio 2015\projects\newex\newex\kknight.h(9): error C3646: 'position': unknown override specifier
+c:\users\s171102\documents\visual studio 2015\projects\newex\newex\kknight.h(9): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\s171102\documents\visual studio 2015\projects\newex\newex\kknight.h(10): error C3646: 'sword': unknown override specifier
+c:\users\s171102\documents\visual studio 2015\projects\newex\newex\kknight.h(10): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\s171102\documents\visual studio 2015\projects\newex\newex\kknight.cpp(15): error C2065: 'position': undeclared identifier
+c:\users\s171102\documents\visual studio 2015\projects\newex\newex\kknight.cpp(16): error C2065: 'sword': undeclared identifier
+c:\users\s171102\documents\visual studio 2015\projects\newex\newex\kknight.cpp(16): error C2228: left of '.createSword' must have class/struct/union
+  c:\users\s171102\documents\visual studio 2015\projects\newex\newex\kknight.cpp(16): note: type is 'unknown-type'
+c:\users\s171102\documents\visual studio 2015\projects\newex\newex\kknight.cpp(23): error C2065: 'position': undeclared identifier
+c:\users\s171102\documents\visual studio 2015\projects\newex\newex\kknight.cpp(23): error C2228: left of '.x' must have class/struct/union
+  c:\users\s171102\documents\visual studio 2015\projects\newex\newex\kknight.cpp(23): note: type is 'unknown-type'
+c:\users\s171102\documents\visual studio 2015\projects\newex\newex\kknight.cpp(23): error C2228: left of '.y' must have class/struct/union
+  c:\users\s171102\documents\visual studio 2015\projects\newex\newex\kknight.cpp(23): note: type is 'unknown-type'
+c:\users\s171102\documents\visual studio 2015\projects\newex\newex\kknight.cpp(24): error C2065: 'sword': undeclared identifier
+c:\users\s171102\documents\visual studio 2015\projects\newex\newex\kknight.cpp(24): error C2228: left of '.printSword' must have class/struct/union
+  c:\users\s171102\documents\visual studio 2015\projects\newex\newex\kknight.cpp(24): note: type is 'unknown-type'
+c:\users\s171102\documents\visual studio 2015\projects\newex\newex\kknight.cpp(46): error C2065: 'position': undeclared identifier
+c:\users\s171102\documents\visual studio 2015\projects\newex\newex\kknight.cpp(46): error C2228: left of '.x' must have class/struct/union
+  c:\users\s171102\documents\visual studio 2015\projects\newex\newex\kknight.cpp(46): note: type is 'unknown-type'
+c:\users\s171102\documents\visual studio 2015\projects\newex\newex\kknight.cpp(47): error C2065: 'position': undeclared identifier
+c:\users\s171102\documents\visual studio 2015\projects\newex\newex\kknight.cpp(47): error C2228: left of '.y' must have class/struct/union
+  c:\users\s171102\documents\visual studio 2015\projects\newex\newex\kknight.cpp(47): note: type is 'unknown-type'
+  Generating Code...

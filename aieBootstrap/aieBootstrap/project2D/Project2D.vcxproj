@@ -91,6 +91,8 @@
   <ItemGroup>
     <ClCompile Include="Agents.cpp" />
     <ClCompile Include="Application2D.cpp" />
+    <ClCompile Include="AStar.cpp" />
+    <ClCompile Include="Heap.cpp" />
     <ClCompile Include="KeyboardController.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Seek.cpp" />
@@ -99,7 +101,12 @@
   <ItemGroup>
     <ClInclude Include="Agents.h" />
     <ClInclude Include="Application2D.h" />
+    <ClInclude Include="AStar.h" />
+    <ClInclude Include="AstarNode.h" />
+    <ClInclude Include="Defines.h" />
     <ClInclude Include="DynamicArray.h" />
+    <ClInclude Include="GridNode.h" />
+    <ClInclude Include="Heap.h" />
     <ClInclude Include="IBehaviour.h" />
     <ClInclude Include="KeyboardController.h" />
     <ClInclude Include="LinkedList.h" />

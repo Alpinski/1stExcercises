@@ -1,0 +1,4 @@
+﻿  Source1.cpp
+c:\users\s171102\documents\visual studio 2015\projects\structures\structures\source1.cpp(27): warning C4101: 'potion': unreferenced local variable
+Source1.obj : error LNK2005: _main already defined in Source.obj
+c:\users\s171102\documents\visual studio 2015\Projects\structures\Debug\structures.exe : fatal error LNK1169: one or more multiply defined symbols found

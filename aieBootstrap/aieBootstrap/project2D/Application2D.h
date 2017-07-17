@@ -3,8 +3,13 @@
 #include "Renderer2D.h"
 #include "Audio.h"
 
+
+struct GridNode;
+
 class Application2D : public aie::Application {
 public:
+	
+
 
 	Application2D();
 	virtual ~Application2D();
@@ -24,4 +29,6 @@ protected:
 
 	float m_cameraX, m_cameraY;
 	float m_timer;
+
+	GridNode** m_ppGrid;
 };

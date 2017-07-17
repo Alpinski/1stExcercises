@@ -113,8 +113,6 @@ public:
 		}
 		else
 			return default;
-
-		
 	}
 
 	T popFront()
@@ -197,6 +195,14 @@ public:
 		}
 	}
 
+	void deleteNode(Node * node)
+	{
+		Node * temp = node->next;
+		node->data = node->next->data;
+		node->next = temp->next;
+		free(temp);
+
+	}
 
 	int nodeCount = 0;
 	ListNode<T>* start;

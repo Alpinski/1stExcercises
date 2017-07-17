@@ -1,0 +1,4 @@
+﻿  Source.cpp
+c:\users\s171102\documents\visual studio 2015\projects\chararrays\chararrays\source.cpp(62): warning C4805: '==': unsafe mix of type 'bool (__cdecl *)(char [])' and type 'bool' in operation
+c:\users\s171102\documents\visual studio 2015\projects\chararrays\chararrays\source.cpp(62): error C2446: '==': no conversion from 'int' to 'bool (__cdecl *)(char [])'
+  c:\users\s171102\documents\visual studio 2015\projects\chararrays\chararrays\source.cpp(62): note: Conversion from integral type to pointer type requires reinterpret_cast, C-style cast or function-style cast

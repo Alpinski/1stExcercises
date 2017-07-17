@@ -1,0 +1,11 @@
+﻿  Source.cpp
+c:\users\s171102\documents\visual studio 2015\projects\functions1\functions1\source.cpp(5): warning C4215: nonstandard extension used: long float
+c:\users\s171102\documents\visual studio 2015\projects\functions1\functions1\source.cpp(6): error C2556: 'float value(float,float)': overloaded function differs only by return type from 'double value(float,float)'
+  c:\users\s171102\documents\visual studio 2015\projects\functions1\functions1\source.cpp(5): note: see declaration of 'value'
+c:\users\s171102\documents\visual studio 2015\projects\functions1\functions1\source.cpp(6): error C2371: 'value': redefinition; different basic types
+  c:\users\s171102\documents\visual studio 2015\projects\functions1\functions1\source.cpp(5): note: see declaration of 'value'
+c:\users\s171102\documents\visual studio 2015\projects\functions1\functions1\source.cpp(14): error C2556: 'float value(float,float)': overloaded function differs only by return type from 'double value(float,float)'
+  c:\users\s171102\documents\visual studio 2015\projects\functions1\functions1\source.cpp(5): note: see declaration of 'value'
+c:\users\s171102\documents\visual studio 2015\projects\functions1\functions1\source.cpp(24): warning C4390: ';': empty controlled statement found; is this the intent?
+c:\users\s171102\documents\visual studio 2015\projects\functions1\functions1\source.cpp(32): warning C4215: nonstandard extension used: long float
+c:\users\s171102\documents\visual studio 2015\projects\functions1\functions1\source.cpp(43): warning C4390: ';': empty controlled statement found; is this the intent?
