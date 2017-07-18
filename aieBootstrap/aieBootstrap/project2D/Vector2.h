@@ -1,17 +1,7 @@
 #pragma once
 #include <iostream>
-#define _USE_MATH_DEFINES
 #include <cmath>
 
-#ifdef STATIC_LIB//STATIC
-	#define MATH_DLL 
-#else//DYNAMIC
-	#ifdef DLL_EXPORT
-		#define MATH_DLL __declspec(dllexport)
-	#else
-			#define MATH_DLL __declspec(dllimport)
-	#endif
-#endif
 
 class Vector2
 {
@@ -19,15 +9,15 @@ public:
 	//--------------------------------------------------------------------------------------
 	//Constructor
 	//--------------------------------------------------------------------------------------
-	MATH_DLL	Vector2();
+	Vector2();
 	//--------------------------------------------------------------------------------------
 	//Constructor
 	//--------------------------------------------------------------------------------------
-	MATH_DLL	Vector2(float newX , float newY);
+	Vector2(float newX , float newY);
 	//--------------------------------------------------------------------------------------
 	//Deconstructor
 	//--------------------------------------------------------------------------------------
-	MATH_DLL	~Vector2();
+	~Vector2();
 	//--------------------------------------------------------------------------------------
 	// Adds two vector2s together
 	//
@@ -36,7 +26,7 @@ public:
 	// Return:
 	//		returns the result
 	//--------------------------------------------------------------------------------------
-	MATH_DLL	Vector2 operator+(const Vector2& rhs);
+	Vector2 operator+(const Vector2& rhs);
 	//--------------------------------------------------------------------------------------
 	// Subtracts two vector2s together
 	//
@@ -45,7 +35,7 @@ public:
 	// Return:
 	//		returns the result
 	//--------------------------------------------------------------------------------------
-	MATH_DLL	Vector2 operator-(const Vector2& rhs);
+	Vector2 operator-(const Vector2& rhs);
 	//--------------------------------------------------------------------------------------
 	// times two vector4s together
 	//
@@ -54,7 +44,7 @@ public:
 	// Return:
 	//		returns the result
 	//--------------------------------------------------------------------------------------
-	MATH_DLL	Vector2 operator*(const float rhs);
+	Vector2 operator*(const float rhs);
 	//--------------------------------------------------------------------------------------
 	// takes two equal-length sequences of numbers and returns a single number.
 	//
@@ -63,7 +53,7 @@ public:
 	// Return:
 	//		returns the result
 	//--------------------------------------------------------------------------------------
-	MATH_DLL	float Dot(Vector2& rhs);
+	float Dot(Vector2& rhs);
 	//--------------------------------------------------------------------------------------
 	// returns true or false depending on if the number is greater than the other number
 	//
@@ -72,7 +62,7 @@ public:
 	// Return:
 	//		returns true or false
 	//--------------------------------------------------------------------------------------
-	MATH_DLL	bool operator> (const Vector2& rhs);
+	bool operator> (const Vector2& rhs);
 	//--------------------------------------------------------------------------------------
 	// returns true or false depending on if the number is less than the other number
 	//
@@ -81,7 +71,7 @@ public:
 	// Return:
 	//		returns true or false
 	//--------------------------------------------------------------------------------------
-	MATH_DLL	bool operator< (const Vector2& rhs);
+	bool operator< (const Vector2& rhs);
 	//--------------------------------------------------------------------------------------
 	// returns true or false depending on if the number is equal to the other number
 	//
@@ -90,7 +80,7 @@ public:
 	// Return:
 	//		returns true or false
 	//--------------------------------------------------------------------------------------
-	MATH_DLL	bool operator==(const Vector2& rhs);
+	bool operator==(const Vector2& rhs);
 	//--------------------------------------------------------------------------------------
 	// returns true or false depending on if the number does not equal to the other number
 	//
@@ -99,7 +89,7 @@ public:
 	// Return:
 	//		returns true or false
 	//--------------------------------------------------------------------------------------
-	MATH_DLL	bool operator!=(const Vector2& rhs);
+	bool operator!=(const Vector2& rhs);
 	//--------------------------------------------------------------------------------------
 	// returns true or false depending on if the number greater than or equal to the other number
 	//
@@ -108,7 +98,7 @@ public:
 	// Return:
 	//		returns true or false
 	//--------------------------------------------------------------------------------------
-	MATH_DLL	bool operator<=(const Vector2& rhs);
+	bool operator<=(const Vector2& rhs);
 	//--------------------------------------------------------------------------------------
 	// returns true or false depending on if the number less than or equal to the other number
 	//
@@ -117,7 +107,7 @@ public:
 	// Return:
 	//		returns true or false
 	//--------------------------------------------------------------------------------------
-	MATH_DLL	bool operator>=(const Vector2& rhs);
+	bool operator>=(const Vector2& rhs);
 	//--------------------------------------------------------------------------------------
 	//How large an object is
 	//
@@ -126,7 +116,7 @@ public:
 	// Return:
 	//		returns the result
 	//--------------------------------------------------------------------------------------
-	MATH_DLL	float Magnitude();
+	float Magnitude();
 	//--------------------------------------------------------------------------------------
 	//square of a magnitude
 	//
@@ -135,7 +125,7 @@ public:
 	// Return:
 	//		returns the result
 	//--------------------------------------------------------------------------------------
-	MATH_DLL	float sqrMagnitude();
+	float sqrMagnitude();
 	//--------------------------------------------------------------------------------------
 	//multiply by a factor that makes an integral equal to a desired value
 	//
@@ -144,7 +134,7 @@ public:
 	// Return:
 	//		returns the result
 	//--------------------------------------------------------------------------------------
-	MATH_DLL	void Normalise();
+	void Normalise();
 	//--------------------------------------------------------------------------------------
 	//normalise the magnitude
 	//
@@ -153,7 +143,7 @@ public:
 	// Return:
 	//		returns the result
 	//--------------------------------------------------------------------------------------
-	MATH_DLL	Vector2 Normalised(Vector2& data);
+	Vector2 Normalised(Vector2& data);
 	//--------------------------------------------------------------------------------------
 	//calculates the distance between two vector4s
 	//
@@ -162,7 +152,7 @@ public:
 	// Return:
 	//		returns the dist
 	//--------------------------------------------------------------------------------------
-	MATH_DLL	float Distance(Vector2& rhs);
+	float Distance(Vector2& rhs);
 	//--------------------------------------------------------------------------------------
 	//Divides two vectors
 	//
@@ -171,7 +161,7 @@ public:
 	// Return:
 	//		returns the result
 	//--------------------------------------------------------------------------------------
-	MATH_DLL	Vector2 operator/(const float rhs);
+	Vector2 operator/(const float rhs);
 	//--------------------------------------------------------------------------------------
 	//positive number
 	//
@@ -180,7 +170,7 @@ public:
 	// Return:
 	//		returns the result
 	//--------------------------------------------------------------------------------------
-	MATH_DLL	Vector2 posOperator();
+	Vector2 posOperator();
 	//--------------------------------------------------------------------------------------
 	//negative number
 	//
@@ -189,7 +179,7 @@ public:
 	// Return:
 	//		returns the result
 	//--------------------------------------------------------------------------------------
-	MATH_DLL	Vector2 operator-();
+	Vector2 operator-();
 	//--------------------------------------------------------------------------------------
 	//short for x = x + y
 	//
@@ -198,9 +188,9 @@ public:
 	// Return:
 	//		returns the result
 	//--------------------------------------------------------------------------------------
-	MATH_DLL	Vector2 operator+=(const Vector2& rhs);
-	MATH_DLL	float & operator[](const int rhs);
-	MATH_DLL	operator float*();
+	Vector2 operator+=(const Vector2& rhs);
+	float & operator[](const int rhs);
+	operator float*();
 	//--------------------------------------------------------------------------------------
 	//calculates the minimum of the vector2
 	//
@@ -209,7 +199,7 @@ public:
 	// Return:
 	//		returns the result
 	//--------------------------------------------------------------------------------------
-	MATH_DLL	Vector2 min(const Vector2& rhs);
+	Vector2 min(const Vector2& rhs);
 	//--------------------------------------------------------------------------------------
 	//calculates the maximum of the vector2
 	//
@@ -218,7 +208,7 @@ public:
 	// Return:
 	//		returns the result
 	//--------------------------------------------------------------------------------------
-	MATH_DLL	Vector2 max(const Vector2& rhs);
+	Vector2 max(const Vector2& rhs);
 	//--------------------------------------------------------------------------------------
 	//moves the point to the nearest available value.
 	//
@@ -227,7 +217,7 @@ public:
 	// Return:
 	//		returns the result
 	//--------------------------------------------------------------------------------------
-	MATH_DLL	Vector2 clamp(Vector2& min, Vector2 & max);
+	Vector2 clamp(Vector2& min, Vector2 & max);
 	//--------------------------------------------------------------------------------------
 	//interpolation between two values
 	//
@@ -236,7 +226,7 @@ public:
 	// Return:
 	//		none
 	//--------------------------------------------------------------------------------------
-	MATH_DLL	Vector2 lerp(Vector2 a, Vector2 b, float t);
+	Vector2 lerp(Vector2 a, Vector2 b, float t);
 	//--------------------------------------------------------------------------------------
 	//compound linear interpolations
 	//
@@ -245,7 +235,7 @@ public:
 	// Return:
 	//		none
 	//--------------------------------------------------------------------------------------
-	MATH_DLL	Vector2 quadraticBezier(Vector2 a, Vector2 b, Vector2 c, float t);
+	Vector2 quadraticBezier(Vector2 a, Vector2 b, Vector2 c, float t);
 	//--------------------------------------------------------------------------------------
 	//compound linear interpolations with tangents
 	//
@@ -254,7 +244,7 @@ public:
 	// Return:
 	//		none
 	//--------------------------------------------------------------------------------------
-	MATH_DLL	Vector2 hermiteCurve(Vector2 point0, Vector2 tangent0, Vector2 point1, Vector2 tangent1, float t);
+	Vector2 hermiteCurve(Vector2 point0, Vector2 tangent0, Vector2 point1, Vector2 tangent1, float t);
 	//--------------------------------------------------------------------------------------
 	//Swizzles the elements of the vector, assigning differing values depending on the variables in the function name
 	//
@@ -263,10 +253,10 @@ public:
 	// Return:
 	//		returns the result
 	//--------------------------------------------------------------------------------------
-	MATH_DLL	Vector2 xx();
-	MATH_DLL	Vector2 xy();
-	MATH_DLL	Vector2 yx();
-	MATH_DLL	Vector2 yy();
+	Vector2 xx();
+	Vector2 xy();
+	Vector2 yx();
+	Vector2 yy();
 	
 	float x;
 	float y;
@@ -279,4 +269,4 @@ public:
 // Return:
 //		returns the result
 //--------------------------------------------------------------------------------------
-MATH_DLL Vector2 operator*(float lhs, const Vector2 rhs);
+Vector2 operator*(float lhs, const Vector2 rhs);

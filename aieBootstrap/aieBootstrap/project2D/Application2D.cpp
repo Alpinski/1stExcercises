@@ -2,9 +2,8 @@
 #include "Texture.h"
 #include "Font.h"
 #include "Input.h"
-#include "Defines.h"
-#include "Vector2.h"
-#include "GridNode.h"
+#include "Grid.h"
+
 using namespace aie;
 
 
@@ -30,88 +29,10 @@ bool Application2D::startup()
 	m_cameraX = 0;
 	m_cameraY = 0;
 	m_timer = 0;
-
-	m_ppGrid = new GridNode*[GRID_SIZE * GRID_SIZE];
-
-	for (int x = 0; x < GRID_SIZE; ++x)
-	{
-		for (int y = 0; y < GRID_SIZE; ++y)
-		{
-			int index = (y * GRID_SIZE) + x;
-			//calculate position of node in game world
-			Vector2 pos(x * NODE_SIZE, y * NODE_SIZE);
-			//create the node
-			m_ppGrid[index] = new GridNode(pos, x, y);
-		}
-	}
-
-	//connect up adjacent nodes
-	for (int x = 0; x < GRID_SIZE; ++x)
-	{
-		for (int y = 0; y < GRID_SIZE; ++y)
-		{
-			int index = (y * GRID_SIZE) + x;
-			GridNode* currentNode = m_ppGrid[index];
-			//adjacent nodes
-			// -------------
-			// |   | 3 |   |
-			// -------------
-			// | 0 | M | 2 |
-			// -------------
-			// |   | 1 |   |
-			// -------------
-			for (int a = 0; a < 4; ++a)
-			{
-				int localX = x;
-				int localY = y;
-
-				if (a % 2 == 0)
-				{
-					localX += a - 1;
-				}
-				else
-				{
-					localY += a - 2;
-				}
-
-				if (localX < 0 || localX > GRID_SIZE)
-				{
-					continue; 
-				}
-				if (localY < 0 || localY > GRID_SIZE)
-				{
-					continue;
-				}
-
-
-				int localIndex = ((y + (a - 2)) * GRID_SIZE) + (x + (a - 1));
-				GridNode* adjNode = m_ppGrid[localIndex];
-
-				AstarEdge* pEdge = new AstarEdge();
-				pEdge->m_pEndNode = adjNode;
-				pEdge->m_nCost = 10;
-				
-				currentNode->m_AdjacentList.PushBack(pEdge);
-			}
-			//diagonal nodes
-			for (int d = 0; d < 4; ++d)
-			{
-
-			}
-		}
-	}
-
-	return true;
 }
 
 void Application2D::shutdown() 
 {
-	for (int i = 0; i < GRID_SIZE * GRID_SIZE; ++i)
-	{
-		delete m_ppGrid[i];
-	}
-	delete[] m_ppGrid;
-
 	delete m_audio;
 	delete m_font;
 	delete m_shipTexture;
@@ -159,24 +80,6 @@ void Application2D::draw()
 	m_2dRenderer->begin();
 
 	
-	for (int i = 0; i < GRID_SIZE * GRID_SIZE; ++i)
-	{
-		float x = m_ppGrid[i]->m_v2Pos.x;
-		float y = m_ppGrid[i]->m_v2Pos.y;
-		m_2dRenderer->drawBox(x, y, NODE_SIZE - 2, NODE_SIZE - 2);
-
-		for (int a = 0; a < m_ppGrid[i]->m_AdjacentList.Size(); ++a)
-		{
-			GridNode* otherNode((GridNode*)m_ppGrid[i]->m_AdjacentList[a]->m_pEndNode);
-
-			float otherX = otherNode->m_v2Pos.x;
-			float otherY = otherNode->m_v2Pos.y;
-			m_2dRenderer->setRenderColour(0xFF0000FF);
-			m_2dRenderer->drawLine(x, y, otherX, otherY, 1.0f);
-			m_2dRenderer->setRenderColour(0xFFFFFFFF);
-		}
-	}
-
 
 	// output some text, uses the last used colour
 	char fps[32];

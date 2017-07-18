@@ -92,7 +92,7 @@
     <ClCompile Include="Agents.cpp" />
     <ClCompile Include="Application2D.cpp" />
     <ClCompile Include="AStar.cpp" />
-    <ClCompile Include="Heap.cpp" />
+    <ClCompile Include="Grid.cpp" />
     <ClCompile Include="KeyboardController.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Seek.cpp" />
@@ -105,6 +105,7 @@
     <ClInclude Include="AstarNode.h" />
     <ClInclude Include="Defines.h" />
     <ClInclude Include="DynamicArray.h" />
+    <ClInclude Include="Grid.h" />
     <ClInclude Include="GridNode.h" />
     <ClInclude Include="Heap.h" />
     <ClInclude Include="IBehaviour.h" />

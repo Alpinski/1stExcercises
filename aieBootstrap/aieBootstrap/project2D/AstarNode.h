@@ -1,7 +1,9 @@
 #pragma once
-#include <vector>
+#include "DynamicArray.h"
 
 struct AstarNode;
+
+using namespace std;
 
 struct AstarEdge
 {
@@ -12,17 +14,18 @@ struct AstarEdge
 struct AstarNode
 {
 public:
-	AstarNode()
+	AstarNode(int nIndex)
 	{
-		m_pPrevious = 0;
+		m_pPrevious = nullptr;
 		m_nGScore = 0;
 		m_nHScore = 0;
 		m_nFScore = 0;
+		m_nIndex = nIndex;
 	}
 
 	virtual ~AstarNode() 
 	{
-		for (size_t i = 0; i < m_AdjacentList.Size(); ++i)
+		for (int i = 0; i < m_AdjacentList.Size(); ++i)
 		{
 			delete m_AdjacentList[i];
 		}
@@ -34,5 +37,7 @@ public:
 	int m_nHScore;
 	int m_nFScore;
 
-	vector<AstarEdge*> m_AdjacentList;
+	int m_nIndex;
+
+	DynamicArray<AstarEdge*> m_AdjacentList;
 };

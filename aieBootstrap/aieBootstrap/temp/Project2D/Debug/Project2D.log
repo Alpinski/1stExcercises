@@ -1,26 +1,3 @@
-﻿  Agents.cpp
-l:\1stexcercises\aiebootstrap\aiebootstrap\project2d\agents.h(14): error C2653: 'aie': is not a class or namespace name
-l:\1stexcercises\aiebootstrap\aiebootstrap\project2d\agents.h(14): error C2061: syntax error: identifier 'Renderer2D'
-l:\1stexcercises\aiebootstrap\aiebootstrap\project2d\agents.h(22): error C2653: 'aie': is not a class or namespace name
-l:\1stexcercises\aiebootstrap\aiebootstrap\project2d\agents.h(22): error C2143: syntax error: missing ';' before '*'
-l:\1stexcercises\aiebootstrap\aiebootstrap\project2d\agents.h(22): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-l:\1stexcercises\aiebootstrap\aiebootstrap\project2d\agents.h(22): error C2238: unexpected token(s) preceding ';'
-l:\1stexcercises\aiebootstrap\aiebootstrap\project2d\agents.h(23): error C2653: 'aie': is not a class or namespace name
-l:\1stexcercises\aiebootstrap\aiebootstrap\project2d\agents.h(23): error C2143: syntax error: missing ';' before '*'
-l:\1stexcercises\aiebootstrap\aiebootstrap\project2d\agents.h(23): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-l:\1stexcercises\aiebootstrap\aiebootstrap\project2d\agents.h(23): error C2238: unexpected token(s) preceding ';'
-l:\1stexcercises\aiebootstrap\aiebootstrap\project2d\agents.cpp(18): error C2039: 'begin': is not a member of 'LinkedList<IBehaviour *>'
-  l:\1stexcercises\aiebootstrap\aiebootstrap\project2d\agents.h(20): note: see declaration of 'LinkedList<IBehaviour *>'
-l:\1stexcercises\aiebootstrap\aiebootstrap\project2d\agents.cpp(18): error C2064: term does not evaluate to a function taking 0 arguments
-l:\1stexcercises\aiebootstrap\aiebootstrap\project2d\agents.cpp(18): error C3536: '<begin>$L0': cannot be used before it is initialized
-l:\1stexcercises\aiebootstrap\aiebootstrap\project2d\agents.cpp(18): error C3536: '<end>$L0': cannot be used before it is initialized
-l:\1stexcercises\aiebootstrap\aiebootstrap\project2d\agents.cpp(18): error C2100: illegal indirection
-l:\1stexcercises\aiebootstrap\aiebootstrap\project2d\agents.cpp(20): error C2227: left of '->Update' must point to class/struct/union/generic type
-  l:\1stexcercises\aiebootstrap\aiebootstrap\project2d\agents.cpp(20): note: type is 'int'
-l:\1stexcercises\aiebootstrap\aiebootstrap\project2d\agents.cpp(25): error C2511: 'void Agents::Draw(aie::Renderer2D *)': overloaded member function not found in 'Agents'
-  l:\1stexcercises\aiebootstrap\aiebootstrap\project2d\agents.h(7): note: see declaration of 'Agents'
-l:\1stexcercises\aiebootstrap\aiebootstrap\project2d\agents.cpp(26): error C2065: 'm_shipTexture': undeclared identifier
-l:\1stexcercises\aiebootstrap\aiebootstrap\project2d\agents.cpp(26): error C2597: illegal reference to non-static member 'Agents::m_timer'
-  Generating Code...
-  Skipping... (no relevant changes detected)
-  Seek.cpp
+﻿  AStar.cpp
+l:\1stexcercises\aiebootstrap\aiebootstrap\project2d\astar.cpp(133): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+  Project2D.vcxproj -> L:\1stExcercises\aieBootstrap\aieBootstrap\temp\Project2D\Debug\Project2D.exe
