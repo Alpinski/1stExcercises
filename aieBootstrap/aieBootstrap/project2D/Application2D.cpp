@@ -2,7 +2,7 @@
 #include "Texture.h"
 #include "Font.h"
 #include "Input.h"
-#include "Grid.h"
+
 
 using namespace aie;
 
@@ -26,9 +26,12 @@ bool Application2D::startup()
 
 	m_audio = new Audio("./audio/powerup.wav");
 
+	m_grid = new Grid();
+
 	m_cameraX = 0;
 	m_cameraY = 0;
 	m_timer = 0;
+	return true;
 }
 
 void Application2D::shutdown() 
@@ -37,11 +40,14 @@ void Application2D::shutdown()
 	delete m_font;
 	delete m_shipTexture;
 	delete m_2dRenderer;
+	delete m_grid;
 }
 
 void Application2D::update(float deltaTime) 
 {
 	m_timer += deltaTime;
+
+	
 
 	// input example
 	Input* input = Input::getInstance();
@@ -79,7 +85,7 @@ void Application2D::draw()
 	// begin drawing sprites
 	m_2dRenderer->begin();
 
-	
+	m_grid->DrawGrid(m_2dRenderer);
 
 	// output some text, uses the last used colour
 	char fps[32];

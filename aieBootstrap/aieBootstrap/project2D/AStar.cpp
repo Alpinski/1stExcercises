@@ -2,12 +2,14 @@
 #include "GridNode.h"
 #include <cmath>
 
+
+
 AStar::AStar(int nMaxNodes)
 {
 	m_ClosedList = new bool[nMaxNodes];
 	m_nMaxNodes = nMaxNodes;
-}
 
+}
 
 AStar::~AStar()
 {
@@ -16,16 +18,18 @@ AStar::~AStar()
 
 bool AStar::CalculatePath(AstarNode * pStart, AstarNode * pEnd, DynamicArray<AstarNode*>* finishedPath)
 {
+
+	
+
 	//clear open list.
 	m_OpenList.Clear();
 	//set all elements in closed list to false
 	memset(m_ClosedList, 0, sizeof(bool) * m_nMaxNodes);
 
-
 	//set start nodes G score to zero
 	pStart->m_nGScore = 0;
 	//calculate start nodes hScore(for now set to zero)
-	pStart->m_nHScore = CalculateHeuristic(pStart, pEnd);
+	pStart->m_nHScore = myHeuristic(pStart, pEnd);
 	//calculate start nodes fScore
 	pStart->m_nFScore = pStart->m_nGScore + pStart->m_nHScore;
 	//set start node's m_preivious to null
@@ -71,6 +75,12 @@ bool AStar::CalculatePath(AstarNode * pStart, AstarNode * pEnd, DynamicArray<Ast
 			AstarNode* pNeighbour = pCurrentNode->m_AdjacentList[i]->m_pEndNode;
 			int nCost = pCurrentNode->m_AdjacentList[i]->m_nCost;
 
+			//skip walls
+			if (pNeighbour->m_bBlocked)
+			{
+				continue;
+			}
+
 			if (m_ClosedList[pNeighbour->m_nIndex])
 			{
 				continue;
@@ -95,7 +105,7 @@ bool AStar::CalculatePath(AstarNode * pStart, AstarNode * pEnd, DynamicArray<Ast
 				//calculate G score
 				pNeighbour->m_nGScore = pCurrentNode->m_nGScore + nCost;
 				//calculate H score
-				pNeighbour->m_nHScore = CalculateHeuristic(pNeighbour, pEnd);
+				pNeighbour->m_nHScore = myHeuristic(pNeighbour, pEnd);
 				//calculate F score
 				pNeighbour->m_nFScore = pCurrentNode->m_nGScore + pCurrentNode->m_nHScore;
 				//ser prev node pointer
@@ -109,27 +119,14 @@ bool AStar::CalculatePath(AstarNode * pStart, AstarNode * pEnd, DynamicArray<Ast
 	return false;
 }
 
-int AStar::CalculateHeuristic(AstarNode * pNode, AstarNode * pEnd)
+int AStar::GetHeuristic(AstarNode* pNode, AstarNode* pEnd)
 {
-	
-	int differenceX = ((GridNode*)pNode)->m_nIndexX - ((GridNode*)pEnd)->m_nIndexX;
-	int differenceY = ((GridNode*)pNode)->m_nIndexY - ((GridNode*)pEnd)->m_nIndexY;
-	//Diagonal shortcut
-	if (differenceX > differenceY)
-	{
-		return 14 * differenceY + 10 * (differenceX - differenceY);
-	}
-	else
-	{
-		return 14 * differenceX + 10 * (differenceY - differenceX);
-	}
+	return CalculateHeuristic(pNode, pEnd);
+}
 
-	//Manhattan Distance
-	//return (abs(differenceX) + abs(differenceY)) * 10;
-
-	//Euclidean Distance
-	//D * sqrt(dx * dx + dy * dy)
-	//return sqrt(differenceX*differenceX + differenceY * differenceY);
+void AStar::SetHeuristic(CalcHeuristic DasHeuristic)
+{
+	myHeuristic = DasHeuristic;
 }
 
 //void AStar::SortOpenList()

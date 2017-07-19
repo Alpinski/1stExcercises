@@ -1,6 +1,9 @@
 #pragma once
 #include "AstarNode.h"
 #include "Heap.h"
+#include "Grid.h"
+
+typedef int(*CalcHeuristic)(AstarNode*, AstarNode*);
 
 using namespace std;
 class AStar
@@ -10,7 +13,14 @@ public:
 	~AStar();
 
 	bool CalculatePath(AstarNode* pStart, AstarNode* pEnd, DynamicArray<AstarNode*>* finishedPath);
-	int CalculateHeuristic(AstarNode* pNode, AstarNode* pEnd);
+
+
+
+	int GetHeuristic(AstarNode* pNode, AstarNode* pEnd);
+
+	void SetHeuristic(CalcHeuristic);
+	CalcHeuristic myHeuristic;
+
 	//void SortOpenList();
 
 private:

@@ -1,29 +1,13 @@
-#include "Renderer2D.h"
 #include "Grid.h"
 #include "Defines.h"
 #include "Vector2.h"
 #include "AStar.h"
 #include "GridNode.h"
-#include "AstarNode.h"
+#include <cmath>
+#include <algorithm>
 
 
 Grid::Grid()
-{
-}
-
-
-Grid::~Grid()
-{
-	delete m_pAStar;
-
-	for (int i = 0; i < GRID_SIZE * GRID_SIZE; ++i)
-	{
-		delete m_ppGrid[i];
-	}
-	delete[] m_ppGrid;
-}
-
-bool Grid::GNode()
 {
 	m_ppGrid = new GridNode*[GRID_SIZE * GRID_SIZE];
 
@@ -36,6 +20,11 @@ bool Grid::GNode()
 			Vector2 pos(x * NODE_SIZE, y * NODE_SIZE);
 			//create the node
 			m_ppGrid[index] = new GridNode(pos, index, x, y);
+
+			if (x % 3 == 0 && y != 5)
+			{
+				m_ppGrid[index]->m_bBlocked = true;
+			}
 		}
 	}
 
@@ -132,15 +121,38 @@ bool Grid::GNode()
 		}
 	}
 	m_pAStar = new AStar(GRID_SIZE * GRID_SIZE);
-	return true;
+
+	m_pAStar->SetHeuristic(&CalculateHeuristic);
 }
 
-void Grid::DrawGrid()
+
+Grid::~Grid()
+{
+	delete m_pAStar;
+
+	for (int i = 0; i < GRID_SIZE * GRID_SIZE; ++i)
+	{
+		delete m_ppGrid[i];
+	}
+	delete[] m_ppGrid;
+}
+
+void Grid::DrawGrid(aie::Renderer2D * m_2dRenderer)
 {
 	for (int i = 0; i < GRID_SIZE * GRID_SIZE; ++i)
 	{
 		float x = m_ppGrid[i]->m_v2Pos.x;
 		float y = m_ppGrid[i]->m_v2Pos.y;
+
+		if (m_ppGrid[i]->m_bBlocked)
+		{
+			m_2dRenderer->setRenderColour(0x303030FF);
+		}
+		else
+		{
+			m_2dRenderer->setRenderColour(0x808080FF);
+		}
+
 		m_2dRenderer->drawBox(x, y, NODE_SIZE - GRID_SPACING, NODE_SIZE - GRID_SPACING);
 
 		for (int a = 0; a < m_ppGrid[i]->m_AdjacentList.Size(); ++a)
@@ -166,4 +178,33 @@ void Grid::DrawGrid()
 		m_2dRenderer->drawBox(pNode->m_v2Pos.x, pNode->m_v2Pos.y, NODE_SIZE / 2, NODE_SIZE / 2);
 		m_2dRenderer->setRenderColour(0xFFFFFFFF);
 	}
+}
+
+int CalculateHeuristic (AstarNode * pNode, AstarNode * pEnd)
+{
+
+	int differenceX = ((GridNode*)pNode)->m_nIndexX - ((GridNode*)pEnd)->m_nIndexX;
+	int differenceY = ((GridNode*)pNode)->m_nIndexY - ((GridNode*)pEnd)->m_nIndexY;
+
+
+	differenceX = abs(differenceX);
+	differenceY = abs(differenceY);
+
+	//Diagonal shortcut
+	return COST_HORVER * (differenceX + differenceY) + (sqrt(COST_DIAGONAL) - 2 * COST_HORVER) * min(differenceX, differenceY);
+	//if (differenceX > differenceY)
+	//{
+	//	return (COST_DIAGONAL * differenceY) + COST_HORVER * (differenceX - differenceY);
+	//}
+	//else
+	//{
+	//	return (COST_DIAGONAL * differenceX) + COST_HORVER * (differenceY - differenceX);
+	//}
+
+	//Manhattan Distance
+	//return COST_HORVER * (differenceX + differenceY);
+
+	//Euclidean Distance
+	//D * sqrt(dx * dx + dy * dy)
+	//return COST_HORVER * sqrt(differenceX*differenceX + differenceY * differenceY);
 }

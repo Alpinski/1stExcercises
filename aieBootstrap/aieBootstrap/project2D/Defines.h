@@ -5,3 +5,4 @@
 #define EDGE_THICKNESS 2.0f
 #define COST 10
 #define COST_DIAGONAL 14
+#define COST_HORVER 10

@@ -16,6 +16,7 @@ struct AstarNode
 public:
 	AstarNode(int nIndex)
 	{
+		m_bBlocked = false;
 		m_pPrevious = nullptr;
 		m_nGScore = 0;
 		m_nHScore = 0;
@@ -38,6 +39,7 @@ public:
 	int m_nFScore;
 
 	int m_nIndex;
+	bool m_bBlocked;
 
 	DynamicArray<AstarEdge*> m_AdjacentList;
 };

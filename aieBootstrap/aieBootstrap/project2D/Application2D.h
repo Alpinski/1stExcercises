@@ -2,7 +2,7 @@
 #include "Application.h"
 #include "Renderer2D.h"
 #include "Audio.h"
-
+#include "Grid.h"
 
 
 class Application2D : public aie::Application {
@@ -25,6 +25,8 @@ protected:
 	aie::Texture*		m_shipTexture;
 	aie::Font*			m_font;
 	aie::Audio*			m_audio;
+
+	Grid*				m_grid;
 
 	float m_cameraX, m_cameraY;
 	float m_timer;

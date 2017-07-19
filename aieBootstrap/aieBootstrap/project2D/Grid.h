@@ -1,4 +1,9 @@
 #pragma once
+#include "Renderer2D.h"
+#include "Font.h"
+#include "AstarNode.h"
+
+
 
 struct GridNode;
 
@@ -10,14 +15,14 @@ public:
 	Grid();
 	~Grid();
 
-	bool GNode();
-
-	void DrawGrid();
+	void DrawGrid(aie::Renderer2D * m_2dRenderer);
 
 private:
+
 	aie::Renderer2D*	m_2dRenderer;
 
 	GridNode** m_ppGrid;
 	AStar* m_pAStar;
 };
 
+	int CalculateHeuristic(AstarNode * pNode, AstarNode * pEnd);

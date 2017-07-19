@@ -1,3 +1,3 @@
-﻿  AStar.cpp
-l:\1stexcercises\aiebootstrap\aiebootstrap\project2d\astar.cpp(133): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+﻿  Grid.cpp
+l:\1stexcercises\aiebootstrap\aiebootstrap\project2d\grid.cpp(194): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
   Project2D.vcxproj -> L:\1stExcercises\aieBootstrap\aieBootstrap\temp\Project2D\Debug\Project2D.exe
