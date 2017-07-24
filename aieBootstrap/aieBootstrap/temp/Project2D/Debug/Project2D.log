@@ -1,3 +1,9 @@
 ﻿  Grid.cpp
-l:\1stexcercises\aiebootstrap\aiebootstrap\project2d\grid.cpp(194): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+l:\1stexcercises\aiebootstrap\aiebootstrap\project2d\grid.cpp(195): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+  Generating Code...
+  Compiling...
+  Player.cpp
+  Generating Code...
+  Skipping... (no relevant changes detected)
+  Application2D.cpp
   Project2D.vcxproj -> L:\1stExcercises\aieBootstrap\aieBootstrap\temp\Project2D\Debug\Project2D.exe

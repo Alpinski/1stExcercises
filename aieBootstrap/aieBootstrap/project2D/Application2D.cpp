@@ -2,7 +2,7 @@
 #include "Texture.h"
 #include "Font.h"
 #include "Input.h"
-
+#include "DecisionTree.h"
 
 using namespace aie;
 
@@ -26,7 +26,11 @@ bool Application2D::startup()
 
 	m_audio = new Audio("./audio/powerup.wav");
 
-	m_grid = new Grid();
+	m_Grid = new Grid();
+
+	m_pDecisionTree = new DecisionTree();
+
+	m_pPlayer = new Player(m_Grid);
 
 	m_cameraX = 0;
 	m_cameraY = 0;
@@ -40,7 +44,9 @@ void Application2D::shutdown()
 	delete m_font;
 	delete m_shipTexture;
 	delete m_2dRenderer;
-	delete m_grid;
+	delete m_Grid;
+	delete m_pDecisionTree;
+	delete m_pPlayer;
 }
 
 void Application2D::update(float deltaTime) 
@@ -72,6 +78,9 @@ void Application2D::update(float deltaTime)
 	// exit the application
 	if (input->isKeyDown(INPUT_KEY_ESCAPE))
 		quit();
+
+	m_pDecisionTree->Update(nullptr, deltaTime);
+	m_pPlayer->update(deltaTime);
 }
 
 void Application2D::draw() 
@@ -85,7 +94,9 @@ void Application2D::draw()
 	// begin drawing sprites
 	m_2dRenderer->begin();
 
-	m_grid->DrawGrid(m_2dRenderer);
+	m_Grid->DrawGrid(m_2dRenderer);
+	m_pPlayer->Draw(m_2dRenderer);
+
 
 	// output some text, uses the last used colour
 	char fps[32];

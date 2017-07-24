@@ -17,6 +17,8 @@ public:
 
 	void DrawGrid(aie::Renderer2D * m_2dRenderer);
 
+	GridNode* getNode(int index);
+
 private:
 
 	aie::Renderer2D*	m_2dRenderer;

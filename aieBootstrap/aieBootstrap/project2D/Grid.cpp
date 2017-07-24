@@ -120,16 +120,11 @@ Grid::Grid()
 			}
 		}
 	}
-	m_pAStar = new AStar(GRID_SIZE * GRID_SIZE);
-
-	m_pAStar->SetHeuristic(&CalculateHeuristic);
 }
 
 
 Grid::~Grid()
 {
-	delete m_pAStar;
-
 	for (int i = 0; i < GRID_SIZE * GRID_SIZE; ++i)
 	{
 		delete m_ppGrid[i];
@@ -168,16 +163,7 @@ void Grid::DrawGrid(aie::Renderer2D * m_2dRenderer)
 	}
 
 	//Draw path
-	DynamicArray<AstarNode*> path;
-	m_pAStar->CalculatePath(m_ppGrid[0], m_ppGrid[98], &path);
-
-	for (int i = 0; i < path.Size(); ++i)
-	{
-		GridNode* pNode = (GridNode*)path[i];
-		m_2dRenderer->setRenderColour(0x00FF00FF);
-		m_2dRenderer->drawBox(pNode->m_v2Pos.x, pNode->m_v2Pos.y, NODE_SIZE / 2, NODE_SIZE / 2);
-		m_2dRenderer->setRenderColour(0xFFFFFFFF);
-	}
+	
 }
 
 int CalculateHeuristic (AstarNode * pNode, AstarNode * pEnd)
@@ -191,7 +177,7 @@ int CalculateHeuristic (AstarNode * pNode, AstarNode * pEnd)
 	differenceY = abs(differenceY);
 
 	//Diagonal shortcut
-	return COST_HORVER * (differenceX + differenceY) + (sqrt(COST_DIAGONAL) - 2 * COST_HORVER) * min(differenceX, differenceY);
+	//return COST_HORVER * (differenceX + differenceY) + (sqrt(COST_DIAGONAL) - COST_DIAGONAL * COST_HORVER) * min(differenceX, differenceY);
 	//if (differenceX > differenceY)
 	//{
 	//	return (COST_DIAGONAL * differenceY) + COST_HORVER * (differenceX - differenceY);
@@ -206,5 +192,11 @@ int CalculateHeuristic (AstarNode * pNode, AstarNode * pEnd)
 
 	//Euclidean Distance
 	//D * sqrt(dx * dx + dy * dy)
-	//return COST_HORVER * sqrt(differenceX*differenceX + differenceY * differenceY);
+	return sqrt((differenceX - differenceX)^COST_HEURISTIC_DIAGONAL + (differenceY * differenceY)^COST_HEURISTIC_DIAGONAL);
 }
+
+GridNode* Grid::getNode(int index)
+{
+	return m_ppGrid[index];
+}
+

@@ -3,7 +3,9 @@
 #include "Renderer2D.h"
 #include "Audio.h"
 #include "Grid.h"
+#include "Player.h"
 
+class DecisionTree;
 
 class Application2D : public aie::Application {
 public:
@@ -26,7 +28,9 @@ protected:
 	aie::Font*			m_font;
 	aie::Audio*			m_audio;
 
-	Grid*				m_grid;
+	Player*				m_pPlayer;
+	DecisionTree*		m_pDecisionTree;
+	Grid*				m_Grid;
 
 	float m_cameraX, m_cameraY;
 	float m_timer;
