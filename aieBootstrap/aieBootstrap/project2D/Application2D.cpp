@@ -3,7 +3,8 @@
 #include "Font.h"
 #include "Input.h"
 #include "DecisionTree.h"
-
+#include "Idle.h"
+#include "Patrol.h"
 using namespace aie;
 
 
@@ -26,11 +27,16 @@ bool Application2D::startup()
 
 	m_audio = new Audio("./audio/powerup.wav");
 
-	m_Grid = new Grid();
+	//m_StateMachine = new StateMachine();
+
+	Grid::Create();
+
+
+	m_pPlayer = new Player();
 
 	m_pDecisionTree = new DecisionTree();
 
-	m_pPlayer = new Player(m_Grid);
+
 
 	m_cameraX = 0;
 	m_cameraY = 0;
@@ -43,6 +49,7 @@ void Application2D::shutdown()
 	delete m_audio;
 	delete m_font;
 	delete m_shipTexture;
+	Grid::Destroy();
 	delete m_2dRenderer;
 	delete m_Grid;
 	delete m_pDecisionTree;
@@ -53,7 +60,8 @@ void Application2D::update(float deltaTime)
 {
 	m_timer += deltaTime;
 
-	
+
+	//m_StateMachine->Update(deltaTime);
 
 	// input example
 	Input* input = Input::getInstance();
@@ -94,7 +102,7 @@ void Application2D::draw()
 	// begin drawing sprites
 	m_2dRenderer->begin();
 
-	m_Grid->DrawGrid(m_2dRenderer);
+	Grid::GetInstance()->DrawGrid(m_2dRenderer);
 	m_pPlayer->Draw(m_2dRenderer);
 
 

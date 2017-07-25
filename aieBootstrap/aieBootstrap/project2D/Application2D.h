@@ -4,6 +4,7 @@
 #include "Audio.h"
 #include "Grid.h"
 #include "Player.h"
+#include "StateMachine.h"
 
 class DecisionTree;
 
@@ -28,6 +29,7 @@ protected:
 	aie::Font*			m_font;
 	aie::Audio*			m_audio;
 
+	StateMachine*		m_StateMachine;
 	Player*				m_pPlayer;
 	DecisionTree*		m_pDecisionTree;
 	Grid*				m_Grid;

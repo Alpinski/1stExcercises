@@ -97,6 +97,8 @@ bool AStar::CalculatePath(AstarNode * pStart, AstarNode * pEnd, DynamicArray<Ast
 					pNeighbour->m_nFScore = pCurrentNode->m_nGScore + pCurrentNode->m_nHScore;
 					//update prev node pointer
 					pNeighbour->m_pPrevious = pCurrentNode;
+					//sort heap
+					
 				}
 			}
 			//else (neightbour not in open list)

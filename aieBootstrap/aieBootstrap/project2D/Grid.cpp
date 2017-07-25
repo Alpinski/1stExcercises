@@ -4,8 +4,9 @@
 #include "AStar.h"
 #include "GridNode.h"
 #include <cmath>
-#include <algorithm>
 
+
+Grid* Grid::m_pInstance = nullptr;
 
 Grid::Grid()
 {
@@ -166,37 +167,30 @@ void Grid::DrawGrid(aie::Renderer2D * m_2dRenderer)
 	
 }
 
-int CalculateHeuristic (AstarNode * pNode, AstarNode * pEnd)
-{
-
-	int differenceX = ((GridNode*)pNode)->m_nIndexX - ((GridNode*)pEnd)->m_nIndexX;
-	int differenceY = ((GridNode*)pNode)->m_nIndexY - ((GridNode*)pEnd)->m_nIndexY;
-
-
-	differenceX = abs(differenceX);
-	differenceY = abs(differenceY);
-
-	//Diagonal shortcut
-	//return COST_HORVER * (differenceX + differenceY) + (sqrt(COST_DIAGONAL) - COST_DIAGONAL * COST_HORVER) * min(differenceX, differenceY);
-	//if (differenceX > differenceY)
-	//{
-	//	return (COST_DIAGONAL * differenceY) + COST_HORVER * (differenceX - differenceY);
-	//}
-	//else
-	//{
-	//	return (COST_DIAGONAL * differenceX) + COST_HORVER * (differenceY - differenceX);
-	//}
-
-	//Manhattan Distance
-	//return COST_HORVER * (differenceX + differenceY);
-
-	//Euclidean Distance
-	//D * sqrt(dx * dx + dy * dy)
-	return sqrt((differenceX - differenceX)^COST_HEURISTIC_DIAGONAL + (differenceY * differenceY)^COST_HEURISTIC_DIAGONAL);
-}
-
 GridNode* Grid::getNode(int index)
 {
 	return m_ppGrid[index];
 }
 
+GridNode* Grid::GetGrid(int nIndex)
+{
+	return m_ppGrid[nIndex];
+}
+
+void Grid::Create()
+{
+	if (!m_pInstance)
+	{
+		m_pInstance = new Grid();
+	}
+}
+
+void Grid::Destroy()
+{
+	delete m_pInstance;
+}
+
+Grid* Grid::GetInstance()
+{
+	return m_pInstance;
+}

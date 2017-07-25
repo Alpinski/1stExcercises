@@ -3,29 +3,33 @@
 #include "IBehaviour.h"
 #include "LinkedList.h"
 #include "Renderer2D.h"
+#include "StateMachine.h"
+#include "Patrol.h"
 class Agents
 {
 public:
 	Agents();
 	~Agents();
 
-	virtual void update(float deltaTime);
+	virtual void update(float deltaTime) = 0;
 
-	virtual void Draw(aie::Renderer2D* m_2dRenderer);
-
-	virtual void MovementUpdate(float Deltatime);
-
+	virtual void Draw(aie::Renderer2D* m_2dRenderer) = 0;
+	Vector2* m_position;
 protected:
 
-	LinkedList<IBehaviour*> m_behaviours;
+	
 
 	aie::Renderer2D*	m_2dRenderer;
 	aie::Texture*		m_shipTexture;
 
+
+	Patrol*				m_pPatrol;
+	StateMachine*		m_pStateActions;
+
 	Vector2 m_force;
 	Vector2 m_acceleration;
 	Vector2 m_velocity;
-	Vector2 m_position;
+	
 
 	float m_timer = 0;
 };

@@ -7,6 +7,5 @@ public:
 	IBehaviour() {}
 	~IBehaviour() {}
 
-	virtual bool Update(Agents* agent, float deltaTime) = 0;
+	virtual bool Update(Agents* agent, float fDeltaTime) = 0;
 };
-

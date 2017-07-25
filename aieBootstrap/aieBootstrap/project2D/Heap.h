@@ -135,6 +135,21 @@ public:
 		return false;
 	}
 
+	//void HeapSort()
+	//{
+	//	int index = GetSize();
+	//	int parent = floor((index - 1) / 2);
+	//	while (m_pValueArray[index] > m_pValueArray[parent])
+	//	{
+	//		AstarNode* temp;
+	//		temp = m_pValueArray[index];
+	//		m_pValueArray[index] = m_pValueArray[parent];
+	//		m_pValueArray[parent] = temp;
+	//		index = parent;
+	//		parent = floor((index - 1) / 2);
+	//	}
+	//}
+
 
 private:
 	DynamicArray<AstarNode*> m_pValueArray;

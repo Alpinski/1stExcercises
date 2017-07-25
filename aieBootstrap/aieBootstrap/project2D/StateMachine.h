@@ -3,6 +3,7 @@
 #include "DynamicArray.h" 
 #include "BaseState.h"
 #include "Stack.h"
+#include "Agents.h"
 using namespace aie;
 
 class StateMachine
@@ -26,7 +27,7 @@ public:
 	//Returns:
 	//		None
 	//-------------------------------------------------
-	void Update(float deltaTime);
+	void Update(Agents* pAgent, float deltaTime);
 	//--------------------------------------------------
 	//Draws on to the state
 	//

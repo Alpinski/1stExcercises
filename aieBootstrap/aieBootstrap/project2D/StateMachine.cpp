@@ -21,12 +21,12 @@ StateMachine::~StateMachine()
 	}
 }
 
-void StateMachine::Update(float deltaTime)
+void StateMachine::Update(Agents* pAgent, float deltaTime)
 {
 	if (m_CurrentStack.Size() <= 0)
 		return;
 	
-	m_CurrentStack.Top()->OnUpdate(deltaTime, this);
+	m_CurrentStack.Top()->OnUpdate(pAgent, deltaTime, this);
 }
 
 

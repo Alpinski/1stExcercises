@@ -4,11 +4,12 @@
 #include "Vector2.h"
 #include "AStar.h"
 #include "GridNode.h"
+#include "StateMachine.h"
 
 class Player : public Agents
 {
 public:
-	Player(Grid* pGrid);
+	Player();
 	~Player();
 
 	void Draw(aie::Renderer2D* m_2dRenderer);
@@ -16,12 +17,11 @@ public:
 	void MovementUpdate(float Deltatime);
 
 private:
-
-	int m_nNextNode;
-
+	StateMachine* m_pStateMachine;
+	int			m_nNextNode;
 	Grid*		m_pGrid;
 	Vector2		m_v2Pos;
-	AStar*		m_pAStar;
+
 
 	DynamicArray<AstarNode*> m_path;
 };

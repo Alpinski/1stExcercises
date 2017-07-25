@@ -2,6 +2,8 @@
 #include "Renderer2D.h"
 using namespace aie;
 
+class Agents;
+
 class StateMachine;
 //--------------------------------------------------
 //The base state every other state inherits from this sate
@@ -42,7 +44,7 @@ public:
 	//Returns:
 	//		None
 	//--------------------------------------------------
-	virtual void OnUpdate(float fDeltaTime, StateMachine* pMachine) = 0;
+	virtual void OnUpdate(Agents* pAgent, float fDeltaTime, StateMachine* pMachine) = 0;
 	//--------------------------------------------------
 	//Initiates the renderer to draw the object of your choosing
 	//
