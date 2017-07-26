@@ -31,6 +31,7 @@ bool Application2D::startup()
 
 	Grid::Create();
 
+	m_AI = new AI();
 
 	m_pPlayer = new Player();
 
@@ -49,9 +50,10 @@ void Application2D::shutdown()
 	delete m_audio;
 	delete m_font;
 	delete m_shipTexture;
+	delete m_AI;
 	Grid::Destroy();
 	delete m_2dRenderer;
-	delete m_Grid;
+	//delete m_Grid;
 	delete m_pDecisionTree;
 	delete m_pPlayer;
 }
@@ -89,6 +91,7 @@ void Application2D::update(float deltaTime)
 
 	m_pDecisionTree->Update(nullptr, deltaTime);
 	m_pPlayer->update(deltaTime);
+	m_AI->update(deltaTime);
 }
 
 void Application2D::draw() 
@@ -105,6 +108,7 @@ void Application2D::draw()
 	Grid::GetInstance()->DrawGrid(m_2dRenderer);
 	m_pPlayer->Draw(m_2dRenderer);
 
+	m_AI->Draw(m_2dRenderer);
 
 	// output some text, uses the last used colour
 	char fps[32];

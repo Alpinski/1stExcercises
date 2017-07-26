@@ -90,12 +90,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Agents.cpp" />
+    <ClCompile Include="AI.cpp" />
+    <ClCompile Include="AIMove.cpp" />
     <ClCompile Include="Application2D.cpp" />
     <ClCompile Include="AStar.cpp" />
     <ClCompile Include="DecisionButtonPressed.cpp" />
     <ClCompile Include="DecisionNothingPressed.cpp" />
     <ClCompile Include="Decisionprint.cpp" />
     <ClCompile Include="DecisionTree.cpp" />
+    <ClCompile Include="Flee.cpp" />
     <ClCompile Include="Follow.cpp" />
     <ClCompile Include="Grid.cpp" />
     <ClCompile Include="Idle.cpp" />
@@ -109,6 +112,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Agents.h" />
+    <ClInclude Include="AI.h" />
+    <ClInclude Include="AIMove.h" />
     <ClInclude Include="Application2D.h" />
     <ClInclude Include="AStar.h" />
     <ClInclude Include="AstarNode.h" />
@@ -124,6 +129,7 @@
     <ClInclude Include="Defines.h" />
     <ClInclude Include="DynamicArray.h" />
     <ClInclude Include="Entity.h" />
+    <ClInclude Include="Flee.h" />
     <ClInclude Include="Follow.h" />
     <ClInclude Include="Grid.h" />
     <ClInclude Include="GridNode.h" />

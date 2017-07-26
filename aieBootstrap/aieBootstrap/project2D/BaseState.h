@@ -1,5 +1,10 @@
 #pragma once
 #include "Renderer2D.h"
+#include <vector>
+#include "IBehaviour.h"
+
+using namespace std;
+
 using namespace aie;
 
 class Agents;
@@ -63,5 +68,7 @@ public:
 	//		None
 	//--------------------------------------------------
 	virtual void OnExit(StateMachine* pMachine) = 0;
+protected:
+	vector<IBehaviour*> m_behaviourList;
 };
 

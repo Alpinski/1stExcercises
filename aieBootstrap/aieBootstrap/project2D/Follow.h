@@ -10,7 +10,8 @@ public:
 	Follow();
 	~Follow();
 
-	bool Update(Agents* agent, float fDeltaTime);
+	Vector2 Update(Agents* agent, float fDeltaTime);
+
 
 private:
 	int			m_nNextNode;

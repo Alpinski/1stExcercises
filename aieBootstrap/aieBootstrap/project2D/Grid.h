@@ -48,7 +48,14 @@ static int CalculateHeuristic(AstarNode * pNode, AstarNode * pEnd)
 	differenceY = abs(differenceY);
 
 	//Diagonal shortcut
+
+	//if (differenceX > differenceY)
+	//	return 1 * (differenceX + differenceY) + (sqrt(2) - 2 * 1) * min(differenceX, differenceY);
+	//else
+	//	return 1 * (differenceY + differenceX) + (sqrt(2) - 2 * 1) * min(differenceY, differenceX);
+
 	return COST_HORVER * (differenceX + differenceY) + ((int)sqrt(COST_DIAGONAL) - COST_DIAGONAL * COST_HORVER) * min(differenceX, differenceY);
+
 	//if (differenceX > differenceY)
 	//{
 	//	return (COST_DIAGONAL * differenceY) + COST_HORVER * (differenceX - differenceY);

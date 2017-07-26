@@ -5,8 +5,3 @@
 Agents::Agents()
 {
 }
-
-
-Agents::~Agents()
-{
-}

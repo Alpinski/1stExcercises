@@ -24,9 +24,7 @@ public:
 	void OnExit(StateMachine* pMachine);
 private:
 
-	vector<IBehaviour*> m_behaviours;
-
-	Follow*		m_pFollow;
+	
 	int			m_nNextNode;
 	Grid*		m_pGrid;
 	Vector2		m_v2Pos;

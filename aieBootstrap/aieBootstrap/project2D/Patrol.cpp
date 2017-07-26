@@ -4,14 +4,17 @@
 
 Patrol::Patrol()
 {
-	m_pFollow = new Follow();
-	m_behaviours.push_back(m_pFollow);
+	m_behaviourList.push_back(new Follow());
+
 }
 
 
 Patrol::~Patrol()
 {
-	delete m_pFollow;
+	for (unsigned int i = 0; i < m_behaviourList.size(); ++i)
+	{
+		delete m_behaviourList[i];
+	}
 }
 
 void Patrol::OnEnter(StateMachine * pMachine)
@@ -21,9 +24,9 @@ void Patrol::OnEnter(StateMachine * pMachine)
 
 void Patrol::OnUpdate(Agents* pAgent, float fDeltaTime, StateMachine* pMachine)
 {
-	for (unsigned int i = 0; i < m_behaviours.size(); ++i)
+	for (unsigned int i = 0; i < m_behaviourList.size(); ++i)
 	{
-		m_behaviours[i]->Update(pAgent, fDeltaTime);
+		m_behaviourList[i]->Update(pAgent, fDeltaTime);
 	}
 }
 

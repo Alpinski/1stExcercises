@@ -29,11 +29,5 @@ void Player::Draw(aie::Renderer2D * m_2dRenderer)
 		m_2dRenderer->setRenderColour(0xFFFFFFFF);
 	}
 
-	m_2dRenderer->drawBox(m_v2Pos.x, m_v2Pos.y, 50, 50);
-}
-
-
-void Player::MovementUpdate(float Deltatime)
-{
-
+	m_2dRenderer->drawBox(m_position.x, m_position.y, 50, 50);
 }

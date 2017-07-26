@@ -12,15 +12,14 @@ public:
 	Player();
 	~Player();
 
-	void Draw(aie::Renderer2D* m_2dRenderer);
 	void update(float deltaTime);
-	void MovementUpdate(float Deltatime);
+	void Draw(aie::Renderer2D* m_2dRenderer);
 
 private:
-	StateMachine* m_pStateMachine;
+
+	
 	int			m_nNextNode;
 	Grid*		m_pGrid;
-	Vector2		m_v2Pos;
 
 
 	DynamicArray<AstarNode*> m_path;

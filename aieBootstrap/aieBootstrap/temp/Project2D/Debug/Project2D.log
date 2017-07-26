@@ -1,20 +1,2 @@
-﻿  Follow.cpp
-l:\1stexcercises\aiebootstrap\aiebootstrap\project2d\follow.cpp(34): error C2027: use of undefined type 'Agents'
-  l:\1stexcercises\aiebootstrap\aiebootstrap\project2d\ibehaviour.h(2): note: see declaration of 'Agents'
-l:\1stexcercises\aiebootstrap\aiebootstrap\project2d\follow.cpp(34): error C2227: left of '->m_v2Pos' must point to class/struct/union/generic type
-l:\1stexcercises\aiebootstrap\aiebootstrap\project2d\follow.cpp(36): error C2065: 'm_v2Pos': undeclared identifier
-l:\1stexcercises\aiebootstrap\aiebootstrap\project2d\follow.cpp(38): error C2065: 'm_v2Pos': undeclared identifier
-  Generating Code...
-  Compiling...
-  Agents.cpp
-  Generating Code...
-  Compiling...
-  Patrol.cpp
-  Generating Code...
-  Skipping... (no relevant changes detected)
-  Seek.cpp
-  main.cpp
-  StateMachine.cpp
-  Player.cpp
-  Idle.cpp
-  Application2D.cpp
+﻿  AIMove.cpp
+  Project2D.vcxproj -> L:\1stExcercises\aieBootstrap\aieBootstrap\temp\Project2D\Debug\Project2D.exe

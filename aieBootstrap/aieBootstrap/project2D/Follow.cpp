@@ -1,8 +1,9 @@
 #include "Follow.h"
 #include "Defines.h"
 #include "Grid.h"
+#include "Agents.h"
 
-Follow::Follow()
+Follow::Follow() : IBehaviour(1.0f)
 {
 	m_pGrid = Grid::GetInstance();
 	m_pAStar = new AStar(GRID_SIZE *GRID_SIZE);
@@ -11,17 +12,13 @@ Follow::Follow()
 	m_nNextNode = 0;
 }
 
-
 Follow::~Follow()
 {
 	delete m_pAStar;
 }
 
-bool Follow::Update(Agents * agent, float fDeltaTime)
-{
-
-	
-
+Vector2 Follow::Update(Agents * agent, float fDeltaTime)
+{	
 	m_path.Clear();
 	m_pAStar->CalculatePath(m_pGrid->getNode(1), m_pGrid->getNode(158), &m_path);
 
@@ -31,15 +28,15 @@ bool Follow::Update(Agents * agent, float fDeltaTime)
 	}
 
 	Vector2 dest = ((GridNode*)m_path[m_nNextNode])->m_v2Pos;
-	Vector2 dir = dest - agent->m_v2Pos;
+	Vector2 dir = dest - agent->Getposition();
 	dir.Normalise();
-	m_v2Pos = m_v2Pos + dir * 500.0f * fDeltaTime;
+	agent->SetPosition(agent->Getposition() + dir * 500.0f * fDeltaTime);
 
-	Vector2 dist = dest - m_v2Pos;
+	Vector2 dist = dest - agent->Getposition();
 	float Dist = dist.Magnitude();
 	if (Dist < 10)
 	{
 		++m_nNextNode;
 	}
-	return false;
+	return Vector2();
 }

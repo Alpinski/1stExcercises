@@ -3,7 +3,7 @@
 
 using namespace aie;
 
-KeyboardController::KeyboardController()
+KeyboardController::KeyboardController() : IBehaviour(1.0f)
 {
 }
 

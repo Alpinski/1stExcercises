@@ -5,7 +5,7 @@
 #include "Grid.h"
 #include "Player.h"
 #include "StateMachine.h"
-
+#include "AI.h"
 class DecisionTree;
 
 class Application2D : public aie::Application {
@@ -29,6 +29,7 @@ protected:
 	aie::Font*			m_font;
 	aie::Audio*			m_audio;
 
+	AI*					m_AI;
 	StateMachine*		m_StateMachine;
 	Player*				m_pPlayer;
 	DecisionTree*		m_pDecisionTree;
