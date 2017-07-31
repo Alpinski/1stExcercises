@@ -123,22 +123,42 @@ public:
 		return (2 * parentIndex) + whichChild;
 	}
 
-	bool Contains(AstarNode* pValueArray)
+	int Contains(AstarNode* pValueArray)
 	{
 		for (int i = 0; i < m_pValueArray.Size(); ++i)
 		{
 			if (m_pValueArray[i] == pValueArray)
 			{
-				return true;
+				return i;
 			}
 		}
-		return false;
+		return -1;
 	}
 
-	//void HeapSort()
+	void HeapSort(int index)
+	{
+		if (index == 0)
+			return;
+
+		int nNodeIndex = index;
+		int nParent = GetParentIndex(index);
+
+		//Check if node has a lower F value than parent, if so then swap.
+		while (nParent >= 0 && m_pValueArray[nNodeIndex]->m_nFScore < m_pValueArray[nParent]->m_nFScore)
+		{
+			//Swap
+			AstarNode* temp = m_pValueArray[nParent];
+			m_pValueArray[nParent] = m_pValueArray[nNodeIndex];
+			m_pValueArray[nNodeIndex] = temp;
+
+			nNodeIndex = nParent;
+			nParent = GetParentIndex(nNodeIndex);
+		}
+	}
+	//void HeapSort(int index)
 	//{
 	//	int index = GetSize();
-	//	int parent = floor((index - 1) / 2);
+	//	int parent = GetParentIndex(index);
 	//	while (m_pValueArray[index] > m_pValueArray[parent])
 	//	{
 	//		AstarNode* temp;

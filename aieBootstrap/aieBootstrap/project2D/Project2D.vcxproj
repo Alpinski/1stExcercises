@@ -94,6 +94,7 @@
     <ClCompile Include="AIMove.cpp" />
     <ClCompile Include="Application2D.cpp" />
     <ClCompile Include="AStar.cpp" />
+    <ClCompile Include="CollisionAvoid.cpp" />
     <ClCompile Include="DecisionButtonPressed.cpp" />
     <ClCompile Include="DecisionNothingPressed.cpp" />
     <ClCompile Include="Decisionprint.cpp" />
@@ -106,9 +107,11 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Patrol.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Player2.cpp" />
     <ClCompile Include="Seek.cpp" />
     <ClCompile Include="StateMachine.cpp" />
     <ClCompile Include="Vector2.cpp" />
+    <ClCompile Include="Wander.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Agents.h" />
@@ -120,6 +123,7 @@
     <ClInclude Include="BaseDecision.h" />
     <ClInclude Include="BaseState.h" />
     <ClInclude Include="BehaviourNode.h" />
+    <ClInclude Include="CollisionAvoid.h" />
     <ClInclude Include="Composite.h" />
     <ClInclude Include="DecisionButtonPressed.h" />
     <ClInclude Include="DecisionNothingPressed.h" />
@@ -131,6 +135,7 @@
     <ClInclude Include="Entity.h" />
     <ClInclude Include="Flee.h" />
     <ClInclude Include="Follow.h" />
+    <ClInclude Include="Follow2.h" />
     <ClInclude Include="Grid.h" />
     <ClInclude Include="GridNode.h" />
     <ClInclude Include="Heap.h" />
@@ -141,7 +146,9 @@
     <ClInclude Include="ListNode.h" />
     <ClInclude Include="MyMap.h" />
     <ClInclude Include="Patrol.h" />
+    <ClInclude Include="Patrol2.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="Player2.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="Seek.h" />
@@ -150,6 +157,7 @@
     <ClInclude Include="Stack.h" />
     <ClInclude Include="StateMachine.h" />
     <ClInclude Include="Vector2.h" />
+    <ClInclude Include="Wander.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

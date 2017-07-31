@@ -35,6 +35,8 @@ bool Application2D::startup()
 
 	m_pPlayer = new Player();
 
+	m_pPlayer2 = new Player2();
+
 	m_pDecisionTree = new DecisionTree();
 
 
@@ -53,6 +55,7 @@ void Application2D::shutdown()
 	delete m_AI;
 	Grid::Destroy();
 	delete m_2dRenderer;
+	delete m_pPlayer2;
 	//delete m_Grid;
 	delete m_pDecisionTree;
 	delete m_pPlayer;
@@ -91,6 +94,7 @@ void Application2D::update(float deltaTime)
 
 	m_pDecisionTree->Update(nullptr, deltaTime);
 	m_pPlayer->update(deltaTime);
+	m_pPlayer2->update(deltaTime);
 	m_AI->update(deltaTime);
 }
 
@@ -107,7 +111,7 @@ void Application2D::draw()
 
 	Grid::GetInstance()->DrawGrid(m_2dRenderer);
 	m_pPlayer->Draw(m_2dRenderer);
-
+	m_pPlayer2->Draw(m_2dRenderer);
 	m_AI->Draw(m_2dRenderer);
 
 	// output some text, uses the last used colour

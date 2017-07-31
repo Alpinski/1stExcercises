@@ -3,7 +3,6 @@
 #include <cmath>
 
 
-
 AStar::AStar(int nMaxNodes)
 {
 	m_ClosedList = new bool[nMaxNodes];
@@ -86,7 +85,8 @@ bool AStar::CalculatePath(AstarNode * pStart, AstarNode * pEnd, DynamicArray<Ast
 				continue;
 			}
 			//if neighbour is already in open list
-			if (m_OpenList.Contains(pNeighbour))
+			int heapIndex = m_OpenList.Contains(pNeighbour);
+			if (heapIndex != -1)
 			{
 				//check if this current path is better than old path(lower f score)
 				if (pCurrentNode->m_nFScore + nCost < pNeighbour->m_nFScore)
@@ -98,7 +98,7 @@ bool AStar::CalculatePath(AstarNode * pStart, AstarNode * pEnd, DynamicArray<Ast
 					//update prev node pointer
 					pNeighbour->m_pPrevious = pCurrentNode;
 					//sort heap
-					
+					m_OpenList.HeapSort(heapIndex);
 				}
 			}
 			//else (neightbour not in open list)
