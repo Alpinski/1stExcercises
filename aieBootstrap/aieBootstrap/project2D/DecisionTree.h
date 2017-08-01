@@ -9,7 +9,7 @@ public:
 	DecisionTree();
 	~DecisionTree();
 
-	void Update(Entity* pEntity, float fDeltaTime);
+	void Update(Agents* pAgent, float fDeltaTime);
 private:
 	DecisionQuestion* m_pRoot;
 };

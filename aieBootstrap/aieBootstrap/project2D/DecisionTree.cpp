@@ -1,6 +1,6 @@
 #include "DecisionTree.h"
 #include "DecisionButtonPressed.h"
-#include "Decisionprint.h"
+#include "DecisionWander.h"
 #include "DecisionNothingPressed.h"
 
 
@@ -8,7 +8,7 @@
 DecisionTree::DecisionTree()
 {
 	m_pRoot = new DecisionButtonPressed();
-	m_pRoot->m_pTrueDecision = new Decisionprint();
+	m_pRoot->m_pTrueDecision = new DecisionWander();
 	m_pRoot->m_pFalseDecision = new DecisionNothingPressed();
 }
 
@@ -20,7 +20,7 @@ DecisionTree::~DecisionTree()
 	delete m_pRoot;
 }
 
-void DecisionTree::Update(Entity * pEntity, float fDeltaTime)
+void DecisionTree::Update(Agents * pAgent, float fDeltaTime)
 {
-	m_pRoot->MakeDecision(pEntity, fDeltaTime);
+	m_pRoot->MakeDecision(pAgent, fDeltaTime);
 }

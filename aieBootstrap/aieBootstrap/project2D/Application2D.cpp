@@ -35,7 +35,7 @@ bool Application2D::startup()
 
 	m_pPlayer = new Player();
 
-	m_pPlayer2 = new Player2();
+	//m_pPlayer2 = new Player2();
 
 	m_pDecisionTree = new DecisionTree();
 
@@ -55,7 +55,7 @@ void Application2D::shutdown()
 	delete m_AI;
 	Grid::Destroy();
 	delete m_2dRenderer;
-	delete m_pPlayer2;
+	//delete m_pPlayer2;
 	//delete m_Grid;
 	delete m_pDecisionTree;
 	delete m_pPlayer;
@@ -92,9 +92,8 @@ void Application2D::update(float deltaTime)
 	if (input->isKeyDown(INPUT_KEY_ESCAPE))
 		quit();
 
-	m_pDecisionTree->Update(nullptr, deltaTime);
 	m_pPlayer->update(deltaTime);
-	m_pPlayer2->update(deltaTime);
+	//m_pPlayer2->update(deltaTime);
 	m_AI->update(deltaTime);
 }
 
@@ -104,20 +103,20 @@ void Application2D::draw()
 	clearScreen();
 
 	// set the camera position before we begin rendering
-	m_2dRenderer->setCameraPos(m_cameraX, m_cameraY);
+	m_2dRenderer->setCameraPos(-50, -125);
 
 	// begin drawing sprites
 	m_2dRenderer->begin();
 
 	Grid::GetInstance()->DrawGrid(m_2dRenderer);
 	m_pPlayer->Draw(m_2dRenderer);
-	m_pPlayer2->Draw(m_2dRenderer);
+//	m_pPlayer2->Draw(m_2dRenderer);
 	m_AI->Draw(m_2dRenderer);
 
 	// output some text, uses the last used colour
 	char fps[32];
 	sprintf_s(fps, 32, "FPS: %i", getFPS());
-	m_2dRenderer->drawText(m_font, fps, 0, 720 - 32);
+	m_2dRenderer->drawText(m_font, fps, 0, 550);
 	m_2dRenderer->drawText(m_font, "Press Space for sound!", 0, 720 - 64);
 
 	// done drawing sprites

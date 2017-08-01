@@ -20,7 +20,7 @@ Follow::~Follow()
 Vector2 Follow::Update(Agents * agent, float fDeltaTime)
 {	
 	m_path.Clear();
-	m_pAStar->CalculatePath(m_pGrid->getNode(1), m_pGrid->getNode(158), &m_path);
+	m_pAStar->CalculatePath(m_pGrid->getNode(1), m_pGrid->getNode(59), &m_path);
 
 	if (m_nNextNode >= m_path.Size())
 	{

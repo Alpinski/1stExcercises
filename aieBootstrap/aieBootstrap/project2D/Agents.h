@@ -4,7 +4,7 @@
 #include "LinkedList.h"
 #include "Renderer2D.h"
 #include "StateMachine.h"
-#include "Patrol.h"
+#include "DecisionNothingPressed.h"
 	
 class Agents
 {
@@ -19,13 +19,23 @@ public:
 	Vector2 Getposition() {return m_position;}
 
 	void SetPosition(Vector2 v2Pos) { m_position = v2Pos;}
+
+	void setAngle(Vector2 Facing)
+	{
+		m_v2Facing = Facing;
+	}
+
+	Vector2 getAngle()
+	{
+		return m_v2Facing;
+	}
+
 protected:
 
 	aie::Renderer2D*	m_2dRenderer;
 	aie::Texture*		m_shipTexture;
 
-
-	Patrol*				m_pPatrol;
+	Vector2				m_v2Facing;
 	StateMachine*		m_pStateMachine;
 	Vector2				m_position;
 	Vector2				m_force;

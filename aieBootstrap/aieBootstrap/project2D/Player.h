@@ -5,6 +5,7 @@
 #include "AStar.h"
 #include "GridNode.h"
 #include "StateMachine.h"
+#include "DecisionQuestion.h"
 
 class Player : public Agents
 {
@@ -16,7 +17,7 @@ public:
 	void Draw(aie::Renderer2D* m_2dRenderer);
 
 private:
-
+	DecisionQuestion* m_pRoot;
 	
 	int			m_nNextNode;
 	Grid*		m_pGrid;

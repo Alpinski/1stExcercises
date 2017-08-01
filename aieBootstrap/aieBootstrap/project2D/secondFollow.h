@@ -4,14 +4,11 @@
 #include "AStar.h"
 #include "GridNode.h"
 
-
-
-class Follow2 : public IBehaviour
-	
+class secondFollow : public IBehaviour
 {
 public:
-	Follow2();
-	~Follow2();
+	secondFollow();
+	~secondFollow();
 
 	Vector2 Update(Agents* agent, float fDeltaTime);
 

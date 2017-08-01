@@ -1,5 +1,6 @@
 #pragma once
 #include "Vector2.h"
+#include <cmath>
 class Agents;
 
 class IBehaviour

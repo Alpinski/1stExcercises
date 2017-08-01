@@ -1,5 +1,6 @@
 #include "DecisionButtonPressed.h"
 #include "Input.h"
+#include "Agents.h"
 using namespace aie;
 
 
@@ -13,14 +14,14 @@ DecisionButtonPressed::~DecisionButtonPressed()
 {
 }
 
-void DecisionButtonPressed::MakeDecision(Entity * pEntity, float fDeltaTime)
+void DecisionButtonPressed::MakeDecision(Agents * pAgent, float fDeltaTime)
 {
 	if (Input::getInstance()->isKeyDown(INPUT_KEY_SPACE))
 	{
-		m_pTrueDecision->MakeDecision(pEntity, fDeltaTime);
+		m_pTrueDecision->MakeDecision(pAgent, fDeltaTime);
 	}
 	else
 	{
-		m_pFalseDecision->MakeDecision(pEntity, fDeltaTime);
+		m_pFalseDecision->MakeDecision(pAgent, fDeltaTime);
 	}
 }

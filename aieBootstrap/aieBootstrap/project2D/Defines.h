@@ -1,5 +1,5 @@
 #pragma once
-#define GRID_SIZE 15
+#define GRID_SIZE 10
 #define NODE_SIZE 50.0f
 #define GRID_SPACING 6.0f
 #define EDGE_THICKNESS 2.0f
@@ -9,3 +9,6 @@
 #define COST_HEURISTIC_HORVER 11
 #define COST_HEURISTIC_DIAGONAL 15
 #define PLAYER_SPEED 500.0f
+#define WHITE 0xFFFFFFFF
+#define REDD 0xFF0000FF
+#define BLACK 0x0000000

@@ -142,11 +142,11 @@ void Grid::DrawGrid(aie::Renderer2D * m_2dRenderer)
 
 		if (m_ppGrid[i]->m_bBlocked)
 		{
-			m_2dRenderer->setRenderColour(0x303030FF);
+			m_2dRenderer->setRenderColour(BLACK);
 		}
 		else
 		{
-			m_2dRenderer->setRenderColour(0x808080FF);
+			m_2dRenderer->setRenderColour(WHITE);
 		}
 
 		m_2dRenderer->drawBox(x, y, NODE_SIZE - GRID_SPACING, NODE_SIZE - GRID_SPACING);
@@ -157,9 +157,9 @@ void Grid::DrawGrid(aie::Renderer2D * m_2dRenderer)
 
 			float otherX = otherNode->m_v2Pos.x;
 			float otherY = otherNode->m_v2Pos.y;
-			m_2dRenderer->setRenderColour(0xFF0000FF);
+			m_2dRenderer->setRenderColour(BLACK);
 			m_2dRenderer->drawLine(x, y, otherX, otherY, EDGE_THICKNESS);
-			m_2dRenderer->setRenderColour(0xFFFFFFFF);
+			m_2dRenderer->setRenderColour(0x0000FFFF);
 		}
 	}
 

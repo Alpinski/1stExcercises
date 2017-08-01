@@ -1,0 +1,19 @@
+﻿  sweep_context.cc
+  sweep.cc
+c:\users\s171102\desktop\1stexercise\navmesh\poly2tri\sweep\sweep.cc(806): warning C4018: '<': signed/unsigned mismatch
+  cdt.cc
+  advancing_front.cc
+  shapes.cc
+  main.cpp
+c:\users\s171102\desktop\1stexercise\navmesh\navmeshapp.h(3): fatal error C1083: Cannot open include file: 'Application.h': No such file or directory
+  NavMeshApp.cpp
+c:\users\s171102\desktop\1stexercise\navmesh\navmeshapp.h(3): fatal error C1083: Cannot open include file: 'Application.h': No such file or directory
+  NavMesh.cpp
+  TODO: Convert triangle mesh to path nodes!
+  TODO: USe your own A* method here!
+  TODO: Build list of edges along the path to smooth!
+  Generating Code...
+c:\users\s171102\desktop\1stexercise\navmesh\poly2tri\common\shapes.cc(167): warning C4715: 'p2t::Triangle::Index': not all control paths return a value
+c:\users\s171102\desktop\1stexercise\navmesh\poly2tri\common\shapes.cc(226): warning C4715: 'p2t::Triangle::PointCW': not all control paths return a value
+c:\users\s171102\desktop\1stexercise\navmesh\poly2tri\common\shapes.cc(239): warning C4715: 'p2t::Triangle::PointCCW': not all control paths return a value
+c:\users\s171102\desktop\1stexercise\navmesh\poly2tri\sweep\sweep.cc(772): warning C4715: 'p2t::Sweep::NextFlipPoint': not all control paths return a value

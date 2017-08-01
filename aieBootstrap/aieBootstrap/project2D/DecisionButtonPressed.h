@@ -8,7 +8,7 @@ public:
 	virtual ~DecisionButtonPressed();
 
 
-	void MakeDecision(Entity* pEntity, float fDeltaTime);
+	void MakeDecision(Agents* pAgent, float fDeltaTime);
 };
 
 

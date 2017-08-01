@@ -3,7 +3,7 @@
 int main() 
 {
 	Application2D* app = new Application2D();
-	app->run("AIE", 1280, 720, false);
+	app->run("AIE", 1440, 720, false);
 	delete app;
 
 	return 0;

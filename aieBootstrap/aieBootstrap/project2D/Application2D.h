@@ -36,7 +36,7 @@ protected:
 	Player*				m_pPlayer;
 	DecisionTree*		m_pDecisionTree;
 	Grid*				m_Grid;
-	Player2*			m_pPlayer2;
+	//Player2*			m_pPlayer2;
 
 	float m_cameraX, m_cameraY;
 	float m_timer;

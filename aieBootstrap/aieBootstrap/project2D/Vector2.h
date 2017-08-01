@@ -189,6 +189,7 @@ public:
 	//		returns the result
 	//--------------------------------------------------------------------------------------
 	Vector2 operator+=(const Vector2& rhs);
+	Vector2 operator*=(const Vector2 & rhs);
 	float & operator[](const int rhs);
 	operator float*();
 	//--------------------------------------------------------------------------------------

@@ -45,6 +45,13 @@ void AIMove::OnUpdate(Agents * pAgent, float fDeltaTime, StateMachine * pMachine
 			break;
 		}	
 	}
+
+
+	Vector2 v2Facing;
+	v2Facing = v2TotalForce;
+	v2Facing.Normalise();
+	pAgent->setAngle(v2Facing);
+
 	pAgent->SetPosition(pAgent->Getposition() + v2TotalForce);
 }
 
