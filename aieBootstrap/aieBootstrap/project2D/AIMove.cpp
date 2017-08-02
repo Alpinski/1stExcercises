@@ -9,8 +9,8 @@
 
 AIMove::AIMove()
 {
-	m_behaviourList.push_back(new Seek(0.75f));
-	m_behaviourList.push_back(new Flee(0.25f));
+	m_behaviourList.push_back(new Seek(0.50f));
+	m_behaviourList.push_back(new Flee(0.50f));
 }
 
 

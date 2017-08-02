@@ -1,6 +1,5 @@
 #pragma once
 #include "Agents.h"
-
 #include "DecisionQuestion.h"
 
 class Wanderer : public Agents

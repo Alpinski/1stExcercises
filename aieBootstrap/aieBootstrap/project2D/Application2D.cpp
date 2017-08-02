@@ -41,8 +41,8 @@ bool Application2D::startup()
 
 
 
-	m_cameraX = 0;
-	m_cameraY = 0;
+	m_cameraX = -50;
+	m_cameraY = -125;
 	m_timer = 0;
 	return true;
 }
@@ -86,7 +86,7 @@ void Application2D::update(float deltaTime)
 
 	// example of audio
 	if (input->wasKeyPressed(INPUT_KEY_SPACE))
-		m_audio->play();
+	{ }
 
 	// exit the application
 	if (input->isKeyDown(INPUT_KEY_ESCAPE))
@@ -103,7 +103,7 @@ void Application2D::draw()
 	clearScreen();
 
 	// set the camera position before we begin rendering
-	m_2dRenderer->setCameraPos(-50, -125);
+	m_2dRenderer->setCameraPos(m_cameraX, m_cameraY);
 
 	// begin drawing sprites
 	m_2dRenderer->begin();
