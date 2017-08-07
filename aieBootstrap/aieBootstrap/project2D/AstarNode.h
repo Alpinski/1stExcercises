@@ -4,13 +4,27 @@
 struct AstarNode;
 
 using namespace std;
-
+//--------------------------------------------------
+// struct that stores a few variables
+//
+//Parameters:
+//
+//Returns:
+//
+//--------------------------------------------------
 struct AstarEdge
 {
 	AstarNode* m_pEndNode;
 	int m_nCost;
 };
-
+//--------------------------------------------------
+//struct that stores the data of an astar node
+//
+//Parameters:
+//
+//Returns:
+//
+//--------------------------------------------------
 struct AstarNode
 {
 public:

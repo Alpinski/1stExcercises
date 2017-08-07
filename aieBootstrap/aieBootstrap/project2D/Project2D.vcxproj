@@ -94,7 +94,6 @@
     <ClCompile Include="AIMove.cpp" />
     <ClCompile Include="Application2D.cpp" />
     <ClCompile Include="AStar.cpp" />
-    <ClCompile Include="CollisionAvoid.cpp" />
     <ClCompile Include="DecisionButtonPressed.cpp" />
     <ClCompile Include="DecisionNothingPressed.cpp" />
     <ClCompile Include="DecisionWander.cpp" />
@@ -102,7 +101,6 @@
     <ClCompile Include="Flee.cpp" />
     <ClCompile Include="Follow.cpp" />
     <ClCompile Include="Grid.cpp" />
-    <ClCompile Include="Idle.cpp" />
     <ClCompile Include="KeyboardController.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Patrol.cpp" />
@@ -125,7 +123,6 @@
     <ClInclude Include="BaseDecision.h" />
     <ClInclude Include="BaseState.h" />
     <ClInclude Include="BehaviourNode.h" />
-    <ClInclude Include="CollisionAvoid.h" />
     <ClInclude Include="Composite.h" />
     <ClInclude Include="DecisionButtonPressed.h" />
     <ClInclude Include="DecisionNothingPressed.h" />
@@ -141,7 +138,6 @@
     <ClInclude Include="GridNode.h" />
     <ClInclude Include="Heap.h" />
     <ClInclude Include="IBehaviour.h" />
-    <ClInclude Include="Idle.h" />
     <ClInclude Include="KeyboardController.h" />
     <ClInclude Include="LinkedList.h" />
     <ClInclude Include="ListNode.h" />

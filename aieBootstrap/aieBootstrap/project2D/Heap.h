@@ -6,26 +6,61 @@
 class Heap
 {
 public:
+	//--------------------------------------------------
+	//default constructor and destructor
+	//
+	//Parameters:
+	//
+	//Returns:
+	//
+	//--------------------------------------------------
 	Heap(){}
 	~Heap(){}
-
+	//--------------------------------------------------
+	//Peeks at what is at the top of heap
+	//
+	//Parameters:
+	//
+	//Returns: m_pValueArray[nTop]->m_nFScore
+	//
+	//--------------------------------------------------
 	int Peek()
 	{
 		int nTop = m_pValueArray.Size() - 1;
 		return m_pValueArray[nTop]->m_nFScore;
 	}
+	//--------------------------------------------------
+	//pops an element off the heap
+	//
+	//Parameters:
+	//
+	//Returns:
+	//
+	//--------------------------------------------------
 	void Pop()
 	{
 		m_pValueArray.popBack();
 	}
-
+	//--------------------------------------------------
 	//Clear all values from the heap
+	//
+	//Parameters:
+	//
+	//Returns:
+	//
+	//--------------------------------------------------
 	void Clear()
 	{
 		m_pValueArray.Clear();
 	}
-
+	//--------------------------------------------------
 	//Push/Remove values from the heap
+	//
+	//Parameters:
+	//
+	//Returns:
+	//
+	//--------------------------------------------------	
 	void Push(AstarNode* value)
 	{
 		// Add data to end of array
@@ -94,35 +129,76 @@ public:
 		m_pValueArray.popBack();
 		return result;
 	}
-
-	//Get information about the heap itself
+	//--------------------------------------------------
+	//gets how big the heap is
+	//
+	//Parameters:
+	//
+	//Returns:m_pValueArray.Size();
+	//
+	//--------------------------------------------------
 	int GetSize()
 	{
 		return m_pValueArray.Size();
 	}
-
+	//--------------------------------------------------
+	//gets how big the heap can get
+	//
+	//Parameters:
+	//
+	//Returns:m_pValueArray.Capacity();
+	//
+	//--------------------------------------------------
 	int GetMaxSize()
 	{
 		return m_pValueArray.Capacity();
 
 	}
 
-	//Checks if heap is empty
+	//--------------------------------------------------
+	//checks if the heap is empty
+	//
+	//Parameters:
+	//
+	//Returns:(m_pValueArray.Size() == 0);
+	//
+	//--------------------------------------------------
 	bool IsEmpty()
 	{
 		return(m_pValueArray.Size() == 0);
 	}
-
+	//--------------------------------------------------
+	//Gets the index of parent
+	//
+	//Parameters:
+	//
+	//Returns:(childIndex - 1) / 2;
+	//
+	//--------------------------------------------------
 	int GetParentIndex(int childIndex)
 	{
 		return (childIndex - 1) / 2;
 	}
-
+	//--------------------------------------------------
+	//Gets the index of child
+	//
+	//Parameters:
+	//
+	//Returns:(2 * parentIndex) + whichChild;
+	//
+	//--------------------------------------------------
 	int GetChildIndex(int parentIndex, int whichChild)
 	{
 		return (2 * parentIndex) + whichChild;
 	}
-
+	//--------------------------------------------------
+	//Looks at what is in the array
+	//
+	//Parameters: takes in an AstarNode
+	//
+	//Returns: i or -1
+	//
+	//--------------------------------------------------
 	int Contains(AstarNode* pValueArray)
 	{
 		for (int i = 0; i < m_pValueArray.Size(); ++i)
@@ -134,11 +210,21 @@ public:
 		}
 		return -1;
 	}
-
+	//--------------------------------------------------
+	//Sorts heap
+	//
+	//Parameters: takes in an int
+	//
+	//Returns:
+	//
+	//--------------------------------------------------
 	void HeapSort(int index)
 	{
 		if (index == 0)
+		{
 			return;
+		}
+			
 
 		int nNodeIndex = index;
 		int nParent = GetParentIndex(index);
@@ -155,21 +241,6 @@ public:
 			nParent = GetParentIndex(nNodeIndex);
 		}
 	}
-	//void HeapSort(int index)
-	//{
-	//	int index = GetSize();
-	//	int parent = GetParentIndex(index);
-	//	while (m_pValueArray[index] > m_pValueArray[parent])
-	//	{
-	//		AstarNode* temp;
-	//		temp = m_pValueArray[index];
-	//		m_pValueArray[index] = m_pValueArray[parent];
-	//		m_pValueArray[parent] = temp;
-	//		index = parent;
-	//		parent = floor((index - 1) / 2);
-	//	}
-	//}
-
 
 private:
 	DynamicArray<AstarNode*> m_pValueArray;

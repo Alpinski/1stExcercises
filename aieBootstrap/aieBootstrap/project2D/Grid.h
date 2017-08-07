@@ -11,19 +11,69 @@ class AStar;
 class Grid
 {
 public:
+	//--------------------------------------------------
+	// default Constructor and destructor
+	//
+	//Parameters:
+	//
+	//Returns:
+	//
+	//--------------------------------------------------
 	Grid();
 	~Grid();
-
+	//--------------------------------------------------
+	// creates the grid that will be used for path finding
+	//
+	//Parameters:
+	//
+	//Returns:
+	//
+	//--------------------------------------------------
 	static void Create();
-
+	//--------------------------------------------------
+	// destroys the previously created grid
+	//
+	//Parameters: takes in AstarNode
+	//
+	//Returns:
+	//
+	//--------------------------------------------------
 	static void Destroy();
-
+	//--------------------------------------------------
+	// Gets the instance of the grid
+	//
+	//Parameters:
+	//
+	//Returns:
+	//
+	//--------------------------------------------------
 	static Grid* GetInstance();
-
+	//--------------------------------------------------
+	// draws the created grid
+	//
+	//Parameters: takes in renderer2d
+	//
+	//Returns:
+	//
+	//--------------------------------------------------
 	void DrawGrid(aie::Renderer2D * m_2dRenderer);
-
+	//--------------------------------------------------
+	// Gets the node
+	//
+	//Parameters:
+	//
+	//Returns:
+	//
+	//--------------------------------------------------
 	GridNode* getNode(int index);
-
+	//--------------------------------------------------
+	// gets the grid
+	//
+	//Parameters:
+	//
+	//Returns:
+	//
+	//--------------------------------------------------
 	GridNode* GetGrid(int nIndex);
 
 private:
@@ -36,7 +86,14 @@ private:
 	static Grid* m_pInstance;
 };
 
-
+//--------------------------------------------------
+// calculates the heuristic of the path
+//
+//Parameters: takes in AstarNode
+//
+//Returns:
+//
+//--------------------------------------------------
 static int CalculateHeuristic(AstarNode * pNode, AstarNode * pEnd)
 {
 
@@ -54,7 +111,7 @@ static int CalculateHeuristic(AstarNode * pNode, AstarNode * pEnd)
 	//else
 	//	return 1 * (differenceY + differenceX) + (sqrt(2) - 2 * 1) * min(differenceY, differenceX);
 
-	return COST_HORVER * (differenceX + differenceY) + ((int)sqrt(COST_DIAGONAL) - COST_DIAGONAL * COST_HORVER) * min(differenceX, differenceY);
+	//return COST_HORVER * (differenceX + differenceY) + ((int)sqrt(COST_DIAGONAL) - COST_DIAGONAL * COST_HORVER) * min(differenceX, differenceY);
 
 	//if (differenceX > differenceY)
 	//{
@@ -70,5 +127,5 @@ static int CalculateHeuristic(AstarNode * pNode, AstarNode * pEnd)
 
 	//Euclidean Distance
 	//D * sqrt(dx * dx + dy * dy)
-	//return sqrt((differenceX - differenceX)^COST_HEURISTIC_DIAGONAL + (differenceY * differenceY)^COST_HEURISTIC_DIAGONAL);
+	return sqrt((differenceX - differenceX)^COST_HEURISTIC_DIAGONAL + (differenceY * differenceY)^COST_HEURISTIC_DIAGONAL);
 }

@@ -7,9 +7,24 @@
 class Follow : public IBehaviour
 {
 public:
+	//--------------------------------------------------
+	// default constructor and destructor
+	//
+	//Parameters: takes in a float
+	//
+	//Returns:
+	//
+	//--------------------------------------------------
 	Follow();
 	~Follow();
-
+	//--------------------------------------------------
+	//update function for follow
+	//
+	//Parameters:  takes in Agents amd a float
+	//
+	//Returns:
+	//
+	//--------------------------------------------------
 	Vector2 Update(Agents* agent, float fDeltaTime);
 
 

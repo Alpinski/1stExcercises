@@ -5,10 +5,33 @@
 class Wander : public IBehaviour
 {
 public:
+	//--------------------------------------------------
+	//default constructor and destructor
+	//
+	//Parameters:
+	//
+	//Returns:
+	//
+	//--------------------------------------------------
 	Wander();
 	~Wander();
-
+	//--------------------------------------------------
+	//update for wander behaviour
+	//
+	//Parameters: takes in Agents and float
+	//
+	//Returns:
+	//
+	//--------------------------------------------------
 	Vector2 Update(Agents* agent, float fDeltaTime);
+	//--------------------------------------------------
+	//random number generartor between highest and lowest
+	//
+	//Parameters:
+	//
+	//Returns:
+	//
+	//--------------------------------------------------
 	int RandomClamped();
 
 private:

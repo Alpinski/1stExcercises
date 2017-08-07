@@ -17,11 +17,30 @@ public:
 
 	Application2D();
 	virtual ~Application2D();
-
+	//--------------------------------------------------
+	//runs all the functions inside and creates the player, rock,etc
+	//Parameters:
+	//Returns:
+	//--------------------------------------------------
 	virtual bool startup();
+	//--------------------------------------------------
+	//Deletes everything that was created by the startup function
+	//Parameters:
+	//Returns:
+	//--------------------------------------------------
 	virtual void shutdown();
-
+	//--------------------------------------------------
+	//Updates player and rock in accordance with delta time
+	//Parameters:
+	//			takes in a float
+	//Returns:
+	//--------------------------------------------------
 	virtual void update(float deltaTime);
+	//--------------------------------------------------
+	//main draw function draws everything, starts the renderer and ends it.
+	//Parameters:
+	//Returns:
+	//--------------------------------------------------
 	virtual void draw();
 
 protected:

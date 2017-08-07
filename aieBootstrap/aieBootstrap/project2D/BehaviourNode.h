@@ -2,10 +2,8 @@
 
 enum EBehaviourResult
 {
-
 	EBEHAVIOUR_FAILURE = 0,
-	EBHEAVIOUR_SUCCESS
-	
+	EBHEAVIOUR_SUCCESS	
 };
 
 class BehaviourNode
