@@ -34,6 +34,9 @@
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.form2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.form2ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.form2ToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -41,11 +44,12 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
-            this.windowsToolStripMenuItem,
-            this.editToolStripMenuItem});
+            this.editToolStripMenuItem,
+            this.windowsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.MdiWindowListItem = this.windowsToolStripMenuItem;
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(284, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(779, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -73,9 +77,13 @@
             // 
             // windowsToolStripMenuItem
             // 
+            this.windowsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.form2ToolStripMenuItem,
+            this.form2ToolStripMenuItem1,
+            this.form2ToolStripMenuItem2});
             this.windowsToolStripMenuItem.Name = "windowsToolStripMenuItem";
             this.windowsToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
-            this.windowsToolStripMenuItem.Text = "&Windows";
+            this.windowsToolStripMenuItem.Text = "Windows";
             // 
             // editToolStripMenuItem
             // 
@@ -83,15 +91,35 @@
             this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
             this.editToolStripMenuItem.Text = "&Edit";
             // 
+            // form2ToolStripMenuItem
+            // 
+            this.form2ToolStripMenuItem.Name = "form2ToolStripMenuItem";
+            this.form2ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.form2ToolStripMenuItem.Text = "1 Form2";
+            this.form2ToolStripMenuItem.Click += new System.EventHandler(this.form2ToolStripMenuItem_Click);
+            // 
+            // form2ToolStripMenuItem1
+            // 
+            this.form2ToolStripMenuItem1.Name = "form2ToolStripMenuItem1";
+            this.form2ToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.form2ToolStripMenuItem1.Text = "2 Form2";
+            // 
+            // form2ToolStripMenuItem2
+            // 
+            this.form2ToolStripMenuItem2.Name = "form2ToolStripMenuItem2";
+            this.form2ToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+            this.form2ToolStripMenuItem2.Text = "3 Form2";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 263);
+            this.ClientSize = new System.Drawing.Size(779, 327);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -110,6 +138,9 @@
         private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem windowsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem form2ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem form2ToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem form2ToolStripMenuItem2;
     }
 }
 
