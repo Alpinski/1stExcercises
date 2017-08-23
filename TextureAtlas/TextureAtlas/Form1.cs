@@ -14,6 +14,8 @@ namespace TextureAtlas
 {
     public partial class Form1 : Form
     {
+        List<Rectangle> asd;
+
         public Form1()
         {
             InitializeComponent();
@@ -29,15 +31,12 @@ namespace TextureAtlas
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
-            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
-
             x = e.X;
             y = e.Y;
         }
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
-            this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
             if (e.Button == MouseButtons.Left)
             {
                 pictureBox1.Left = (pictureBox1.Left + e.X) - x;
@@ -47,7 +46,6 @@ namespace TextureAtlas
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
-            this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
 
             if (e.Button == MouseButtons.Left)
             {
@@ -70,15 +68,17 @@ namespace TextureAtlas
             pathDefault = Path.GetFullPath(Path.Combine(pathDefault, @"..\"));
             if (save.ShowDialog() == DialogResult.OK)
             {
+                pictureBox1.Image.Save(save.FileName);
+
                 MemoryStream ms = new MemoryStream();
-                pictureBox1.Image.Save(ms, ImageFormat.Jpeg);
             }
         }
 
         private void Load_Click(object sender, EventArgs e)
         {
+            
             OpenFileDialog open = new OpenFileDialog();
-            open.InitialDirectory = @"C:\Users\s171102\Documents\";
+            open.InitialDirectory = @"C:\Users\s171102\Pictures";
             open.Filter = "Image files|*.png;*.jpg;*.bmp;";
             if (open.ShowDialog() == DialogResult.OK)
             {

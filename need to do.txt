@@ -1,0 +1,4 @@
+1. click and drag*(draw box) use mouse events
+2. drawing box(refer to gdi slisdes)
+3. as each box is drawn add to an array
+4. save and loading array
