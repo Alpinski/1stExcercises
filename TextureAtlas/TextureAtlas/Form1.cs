@@ -15,10 +15,14 @@ namespace TextureAtlas
 {
 	public partial class Form1 : Form
 	{
+        /// <summary>
+        /// creates a list of rectangles
+        /// </summary>
 		List<Rectangle> list = new List<Rectangle>();
 
-		//Rectangle mRect;
-
+        /// <summary>
+        /// initialise the everything that needs to be
+        /// </summary>
 		public Form1()
 		{
 			InitializeComponent();
@@ -33,19 +37,24 @@ namespace TextureAtlas
 		private Point RectStartPoint;
 		private Rectangle Rect = new Rectangle();
 		private Brush selectionBrush = new SolidBrush(Color.FromArgb(128, 72, 145, 220));
-
-		// Start Rectangle
-
-		private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
+        private int counter = 0;
+        /// <summary>
+        /// what will happen when mouse button is pressed(start drawing rectangle)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
 		{
 			// Determine the initial rectangle coordinates...
 			RectStartPoint = e.Location;
 			pictureBox1.Invalidate();
 			pictureBox1.Refresh();
 		}
-
-		// Draw Rectangle
-		//
+        /// <summary>
+        /// what will happen when mouse button is moved(draw rectangle)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 		private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
 		{
 			if (e.Button != MouseButtons.Left)
@@ -62,8 +71,11 @@ namespace TextureAtlas
 			pictureBox1.Refresh();
 		}
 
-		// Draw Area
-		//
+        /// <summary>
+        /// paints a rectangle in the picturebox and puts it into an array
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 		private void pictureBox1_Paint(object sender, PaintEventArgs e)
 		{
 			// Draw the rectangle...
@@ -83,8 +95,12 @@ namespace TextureAtlas
 				e.Graphics.FillRectangle(selectionBrush, Rect);
 			}
 		}
-
-		private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
+        /// <summary>
+        /// when the mouse button is release it will stop drawing a rectangle
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+  		private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
 		{
 			if (e.Button == MouseButtons.Left)
 			{
@@ -97,7 +113,11 @@ namespace TextureAtlas
 				pictureBox1.Refresh();
 			}
 		}
-
+        /// <summary>
+        /// saves the location of the boxes you drew
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 		private void Save_Click(object sender, EventArgs e)
 		{
 			SaveFileDialog save = new SaveFileDialog();
@@ -118,10 +138,13 @@ namespace TextureAtlas
 				
 			}
 		}
-
+        /// <summary>
+        /// loads your sprite sheet to be previewed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 		private void Load_Click(object sender, EventArgs e)
 		{
-			
 			OpenFileDialog open = new OpenFileDialog();
 			open.InitialDirectory = @"C:\Users\s171102\Pictures";
 			open.Filter = "Image files|*.png;*.jpg;*.bmp;*.tga;";
@@ -134,16 +157,24 @@ namespace TextureAtlas
 				listBox1.Refresh();
 			}
 		}
-
+        /// <summary>
+        /// refreshes the list to keep it updated
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 		private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			pictureBox1.Invalidate();
 			pictureBox1.Refresh();
 		}
-
+        /// <summary>
+        /// deletes a rectangle you've drawn and removes that rectangle from list
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 		private void Delete_Click(object sender, EventArgs e)
 		{
-			//list.Remove(Rect);
+		
 			list.RemoveAt((int)listBox1.SelectedItem);
 			
 			listBox1.Items.RemoveAt((int)listBox1.SelectedItem);
@@ -153,13 +184,16 @@ namespace TextureAtlas
 			listBox1.Refresh();
 
 		}
-
+        /// <summary>
+        /// these next 2 functions are for dragging and dropping images onto the picturebox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 		private void pictureBox1_DragEnter(object sender, DragEventArgs e)
 		{
 
 			e.Effect = DragDropEffects.Copy;
 		}
-
 		private void pictureBox1_DragDrop(object sender, DragEventArgs e)
 
 		{
@@ -169,7 +203,12 @@ namespace TextureAtlas
 				pictureBox1.Image = img;
 			}
 		}
-		private int counter = 0;
+
+        /// <summary>
+        /// timer that plays the selected parts of image in the second picturebox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 		void timer_Tick(object sender, EventArgs e)
 		{
 			pictureBox2.Image = ((Bitmap)pictureBox1.Image).Clone(list[counter], PixelFormat.DontCare);
@@ -183,13 +222,21 @@ namespace TextureAtlas
 			pictureBox2.Refresh();
 			
 		}
-
+        /// <summary>
+        /// plays the selected parts when clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 		private void Play_Click(object sender, EventArgs e)
 		{
 			 pictureBox1.Show();
 			 timer1.Start();
 		}
-
+        /// <summary>
+        /// loads the locations of the boxes when you reopen the tool
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 		private void button1_Click(object sender, EventArgs e)
 		{
 			string line;
@@ -216,5 +263,16 @@ namespace TextureAtlas
 				}
 			}
 		}
-	}
+        /// <summary>
+        /// stops the animation preview in the picturebox2
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Stop_Click(object sender, EventArgs e)
+        {
+            pictureBox2.Image = null;
+            timer1.Stop();
+            pictureBox2.Refresh();
+        }
+    }
 }
